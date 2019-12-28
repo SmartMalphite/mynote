@@ -1,6 +1,12 @@
-# 第一段代码
+---
+description: Hello World
+---
 
-```Go
+# 0.老规矩
+
+### 示例代码如下
+
+```text
 //main包中的main函数是程序的入口
 package main  //包声明，表明代码所属模块
 

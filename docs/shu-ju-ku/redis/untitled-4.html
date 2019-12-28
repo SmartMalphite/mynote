@@ -1,0 +1,1055 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>5-redis数据结构 – 哈希 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="untitled-5.html" />
+    
+    
+    <link rel="prev" href="untitled-3.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    欢迎访问
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">编码知识</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../bian-ma-zhi-shi/python-su-cha/">
+            
+                <a href="../../bian-ma-zhi-shi/python-su-cha/">
+            
+                    
+                    Python语言学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../../bian-ma-zhi-shi/python-su-cha/untitled.html">
+            
+                <a href="../../bian-ma-zhi-shi/python-su-cha/untitled.html">
+            
+                    
+                    基础语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../../bian-ma-zhi-shi/python-su-cha/chang-yong-lei-ku/">
+            
+                <a href="../../bian-ma-zhi-shi/python-su-cha/chang-yong-lei-ku/">
+            
+                    
+                    常用类库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.2.1" data-path="../../bian-ma-zhi-shi/python-su-cha/chang-yong-lei-ku/http.client.html">
+            
+                <a href="../../bian-ma-zhi-shi/python-su-cha/chang-yong-lei-ku/http.client.html">
+            
+                    
+                    http.client
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.2" data-path="../../bian-ma-zhi-shi/python-su-cha/chang-yong-lei-ku/logging.html">
+            
+                <a href="../../bian-ma-zhi-shi/python-su-cha/chang-yong-lei-ku/logging.html">
+            
+                    
+                    logging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.3" data-path="../../bian-ma-zhi-shi/python-su-cha/chang-yong-lei-ku/sqlalchemy.html">
+            
+                <a href="../../bian-ma-zhi-shi/python-su-cha/chang-yong-lei-ku/sqlalchemy.html">
+            
+                    
+                    sqlalchemy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.4" data-path="../../bian-ma-zhi-shi/python-su-cha/chang-yong-lei-ku/random.html">
+            
+                <a href="../../bian-ma-zhi-shi/python-su-cha/chang-yong-lei-ku/random.html">
+            
+                    
+                    random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.5" data-path="../../bian-ma-zhi-shi/python-su-cha/chang-yong-lei-ku/zlib.html">
+            
+                <a href="../../bian-ma-zhi-shi/python-su-cha/chang-yong-lei-ku/zlib.html">
+            
+                    
+                    zlib&hashlib
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../../bian-ma-zhi-shi/python-su-cha/chang-yong-gong-ju/">
+            
+                <a href="../../bian-ma-zhi-shi/python-su-cha/chang-yong-gong-ju/">
+            
+                    
+                    常用工具&框架
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.3.1" data-path="../../bian-ma-zhi-shi/python-su-cha/chang-yong-gong-ju/python-virtualenv-shi-yong.html">
+            
+                <a href="../../bian-ma-zhi-shi/python-su-cha/chang-yong-gong-ju/python-virtualenv-shi-yong.html">
+            
+                    
+                    Python virtualenv 使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.2" data-path="../../bian-ma-zhi-shi/python-su-cha/chang-yong-gong-ju/locust-jin-hang-xing-neng-ce-shi.html">
+            
+                <a href="../../bian-ma-zhi-shi/python-su-cha/chang-yong-gong-ju/locust-jin-hang-xing-neng-ce-shi.html">
+            
+                    
+                    Locust进行性能测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.3" data-path="../../bian-ma-zhi-shi/python-su-cha/chang-yong-gong-ju/qtaf.html">
+            
+                <a href="../../bian-ma-zhi-shi/python-su-cha/chang-yong-gong-ju/qtaf.html">
+            
+                    
+                    QTAF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.4" data-path="../../bian-ma-zhi-shi/python-su-cha/chang-yong-gong-ju/web.py-wu-mo-ban.html">
+            
+                <a href="../../bian-ma-zhi-shi/python-su-cha/chang-yong-gong-ju/web.py-wu-mo-ban.html">
+            
+                    
+                    WebPy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../bian-ma-zhi-shi/go-yu-yan-su-cha/">
+            
+                <a href="../../bian-ma-zhi-shi/go-yu-yan-su-cha/">
+            
+                    
+                    Go语言学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../../bian-ma-zhi-shi/go-yu-yan-su-cha/untitled/">
+            
+                <a href="../../bian-ma-zhi-shi/go-yu-yan-su-cha/untitled/">
+            
+                    
+                    基础语法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1.1" data-path="../../bian-ma-zhi-shi/go-yu-yan-su-cha/untitled/0-hello-world.html">
+            
+                <a href="../../bian-ma-zhi-shi/go-yu-yan-su-cha/untitled/0-hello-world.html">
+            
+                    
+                    0.老规矩
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.1.2" data-path="../../bian-ma-zhi-shi/go-yu-yan-su-cha/untitled/1.go-bian-liang-ding-yi.html">
+            
+                <a href="../../bian-ma-zhi-shi/go-yu-yan-su-cha/untitled/1.go-bian-liang-ding-yi.html">
+            
+                    
+                    1.变量&常量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.1.3" data-path="../../bian-ma-zhi-shi/go-yu-yan-su-cha/untitled/2.-chang-liang.html">
+            
+                <a href="../../bian-ma-zhi-shi/go-yu-yan-su-cha/untitled/2.-chang-liang.html">
+            
+                    
+                    2.类型转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.1.4" data-path="../../bian-ma-zhi-shi/go-yu-yan-su-cha/untitled/3.-tiao-jian-he-xun-huan.html">
+            
+                <a href="../../bian-ma-zhi-shi/go-yu-yan-su-cha/untitled/3.-tiao-jian-he-xun-huan.html">
+            
+                    
+                    3.条件和循环
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.1.5" data-path="../../bian-ma-zhi-shi/go-yu-yan-su-cha/untitled/4.-shu-ju-he-qie-pian.html">
+            
+                <a href="../../bian-ma-zhi-shi/go-yu-yan-su-cha/untitled/4.-shu-ju-he-qie-pian.html">
+            
+                    
+                    4.数据和切片
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../../bian-ma-zhi-shi/go-yu-yan-su-cha/chang-yong-gong-ju/">
+            
+                <a href="../../bian-ma-zhi-shi/go-yu-yan-su-cha/chang-yong-gong-ju/">
+            
+                    
+                    常用工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.2.1" data-path="../../bian-ma-zhi-shi/go-yu-yan-su-cha/chang-yong-gong-ju/go-wei-fu-wu-dai-ma-fu-gai-lv-xing-neng-jian-kong.html">
+            
+                <a href="../../bian-ma-zhi-shi/go-yu-yan-su-cha/chang-yong-gong-ju/go-wei-fu-wu-dai-ma-fu-gai-lv-xing-neng-jian-kong.html">
+            
+                    
+                    Go微服务代码覆盖率&性能监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../../bian-ma-zhi-shi/linuxshell-xue-xi-bi-ji.html">
+            
+                <a href="../../bian-ma-zhi-shi/linuxshell-xue-xi-bi-ji.html">
+            
+                    
+                    Linux/Shell学习笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../../bian-ma-zhi-shi/javascript-su-cha.html">
+            
+                <a href="../../bian-ma-zhi-shi/javascript-su-cha.html">
+            
+                    
+                    Javascript学习笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../../bian-ma-zhi-shi/zheng-ze-biao-da-shi.html">
+            
+                <a href="../../bian-ma-zhi-shi/zheng-ze-biao-da-shi.html">
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">常用算法</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../chang-yong-suan-fa/gai-nian/">
+            
+                <a href="../../chang-yong-suan-fa/gai-nian/">
+            
+                    
+                    概念
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../chang-yong-suan-fa/gai-nian/le-guan-suo.html">
+            
+                <a href="../../chang-yong-suan-fa/gai-nian/le-guan-suo.html">
+            
+                    
+                    乐观锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../../chang-yong-suan-fa/shi-jian.html">
+            
+                <a href="../../chang-yong-suan-fa/shi-jian.html">
+            
+                    
+                    实践
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">通信协议</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../tong-xin-xie-yi/grpc-and-protobuf/">
+            
+                <a href="../../tong-xin-xie-yi/grpc-and-protobuf/">
+            
+                    
+                    gRPC协议&Protocol Buffers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../../tong-xin-xie-yi/grpc-and-protobuf/untitled.html">
+            
+                <a href="../../tong-xin-xie-yi/grpc-and-protobuf/untitled.html">
+            
+                    
+                    Protobuf基本使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../../tong-xin-xie-yi/grpc-and-protobuf/protocol-buffer-zai-http-zhong-de-ying-yong.html">
+            
+                <a href="../../tong-xin-xie-yi/grpc-and-protobuf/protocol-buffer-zai-http-zhong-de-ying-yong.html">
+            
+                    
+                    Protobuf在HTTP中的应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../../tong-xin-xie-yi/grpc-and-protobuf/protocol-buffer-zai-grpc-zhong-de-ying-yong.html">
+            
+                <a href="../../tong-xin-xie-yi/grpc-and-protobuf/protocol-buffer-zai-grpc-zhong-de-ying-yong.html">
+            
+                    
+                    Protobuf在gRPC中的应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../../tong-xin-xie-yi/grpc-and-protobuf/liu-shi-grpc-tiao-yong.html">
+            
+                <a href="../../tong-xin-xie-yi/grpc-and-protobuf/liu-shi-grpc-tiao-yong.html">
+            
+                    
+                    流式grpc调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../../tong-xin-xie-yi/http.html">
+            
+                <a href="../../tong-xin-xie-yi/http.html">
+            
+                    
+                    HTTP协议原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">数据库</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../mysql.html">
+            
+                <a href="../mysql.html">
+            
+                    
+                    Mysql 操作指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Redis 操作指南
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.2.1" data-path="0redis-ji-chu.html">
+            
+                <a href="0redis-ji-chu.html">
+            
+                    
+                    0-Redis基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.2" data-path="1redis-shu-ju-jie-gou-zi-fu-chuan.html">
+            
+                <a href="1redis-shu-ju-jie-gou-zi-fu-chuan.html">
+            
+                    
+                    1-Redis数据结构—字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.3" data-path="2redis-shu-ju-jie-gou-lie-biao.html">
+            
+                <a href="2redis-shu-ju-jie-gou-lie-biao.html">
+            
+                    
+                    2-Redis数据结构-列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.4" data-path="untitled-2.html">
+            
+                <a href="untitled-2.html">
+            
+                    
+                    3-Redis数据结构-集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.5" data-path="untitled-3.html">
+            
+                <a href="untitled-3.html">
+            
+                    
+                    4-Redis数据结构-有序集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.2.6" data-path="untitled-4.html">
+            
+                <a href="untitled-4.html">
+            
+                    
+                    5-redis数据结构 – 哈希
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.7" data-path="untitled-5.html">
+            
+                <a href="untitled-5.html">
+            
+                    
+                    6-Redis持久化储存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.8" data-path="untitled-6.html">
+            
+                <a href="untitled-6.html">
+            
+                    
+                    7-redis的事务机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">工具使用</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../../gong-ju-shi-yong/kubernetes/">
+            
+                <a href="../../gong-ju-shi-yong/kubernetes/">
+            
+                    
+                    Kubernetes使用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../../gong-ju-shi-yong/kubernetes/ru-men-zhi-nan.html">
+            
+                <a href="../../gong-ju-shi-yong/kubernetes/ru-men-zhi-nan.html">
+            
+                    
+                    入门指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2" data-path="../../gong-ju-shi-yong/kubernetes/untitled.html">
+            
+                <a href="../../gong-ju-shi-yong/kubernetes/untitled.html">
+            
+                    
+                    Mac OS下安装Docker&k8s
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../../gong-ju-shi-yong/jenkins/">
+            
+                <a href="../../gong-ju-shi-yong/jenkins/">
+            
+                    
+                    Jenkins使用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.2.1" data-path="../../gong-ju-shi-yong/jenkins/ru-men-zhi-nan.html">
+            
+                <a href="../../gong-ju-shi-yong/jenkins/ru-men-zhi-nan.html">
+            
+                    
+                    入门指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2.2" data-path="../../gong-ju-shi-yong/jenkins/k8s-zhong-da-jian-jenkins-fu-wu.html">
+            
+                <a href="../../gong-ju-shi-yong/jenkins/k8s-zhong-da-jian-jenkins-fu-wu.html">
+            
+                    
+                    k8s中搭建jenkins服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="../../gong-ju-shi-yong/kibana/">
+            
+                <a href="../../gong-ju-shi-yong/kibana/">
+            
+                    
+                    Kibana使用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.3.1" data-path="../../gong-ju-shi-yong/kibana/ru-men-zhi-nan.html">
+            
+                <a href="../../gong-ju-shi-yong/kibana/ru-men-zhi-nan.html">
+            
+                    
+                    入门指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="../../gong-ju-shi-yong/git.html">
+            
+                <a href="../../gong-ju-shi-yong/git.html">
+            
+                    
+                    Git使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >5-redis数据结构 – 哈希</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="5-redis&#x6570;&#x636E;&#x7ED3;&#x6784;-&#x2013;-&#x54C8;&#x5E0C;">5-redis&#x6570;&#x636E;&#x7ED3;&#x6784; &#x2013; &#x54C8;&#x5E0C;</h1>
+<h3 id="redis&#x6570;&#x636E;&#x7ED3;&#x6784;-&#x2013;-&#x54C8;&#x5E0C;">redis&#x6570;&#x636E;&#x7ED3;&#x6784; &#x2013; &#x54C8;&#x5E0C;</h3>
+<blockquote>
+<p>&#x6700;&#x540E;&#x8981;&#x7ED9;&#x5927;&#x5BB6;&#x4ECB;&#x7ECD;&#x7684;&#x662F;hashes&#xFF0C;&#x5373;&#x54C8;&#x5E0C;&#x3002;&#x54C8;&#x5E0C;&#x662F;&#x4ECE;redis-2.0.0&#x7248;&#x672C;&#x4E4B;&#x540E;&#x624D;&#x6709;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x3002;</p>
+</blockquote>
+<p>hashes&#x5B58;&#x7684;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x548C;&#x5B57;&#x7B26;&#x4E32;&#x503C;&#x4E4B;&#x95F4;&#x7684;&#x6620;&#x5C04;&#xFF0C;&#x6BD4;&#x5982;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x8981;&#x5B58;&#x50A8;&#x5176;&#x5168;&#x540D;&#x3001;&#x59D3;&#x6C0F;&#x3001;&#x5E74;&#x9F84;&#x7B49;&#x7B49;&#xFF0C;&#x5C31;&#x5F88;&#x9002;&#x5408;&#x4F7F;&#x7528;&#x54C8;&#x5E0C;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-text">//&#x5EFA;&#x7ACB;&#x54C8;&#x5E0C;&#xFF0C;&#x5E76;&#x8D4B;&#x503C;
+127.0.0.1:6379&gt; HMSET user:001 username antirez password P1pp0 age 34 
+OK
+//&#x5217;&#x51FA;&#x54C8;&#x5E0C;&#x7684;&#x5185;&#x5BB9;
+127.0.0.1:6379&gt; HGETALL user:001 
+1) &quot;username&quot;
+2) &quot;antirez&quot;
+3) &quot;password&quot;
+4) &quot;P1pp0&quot;
+5) &quot;age&quot;
+6) &quot;34&quot;
+//&#x66F4;&#x6539;&#x54C8;&#x5E0C;&#x4E2D;&#x7684;&#x67D0;&#x4E00;&#x4E2A;&#x503C;
+127.0.0.1:6379&gt; HSET user:001 password 12345 
+(integer) 0
+//&#x518D;&#x6B21;&#x5217;&#x51FA;&#x54C8;&#x5E0C;&#x7684;&#x5185;&#x5BB9;
+127.0.0.1:6379&gt; HGETALL user:001 
+1) &quot;username&quot;
+2) &quot;antirez&quot;
+3) &quot;password&quot;
+4) &quot;12345&quot;
+5) &quot;age&quot;
+6) &quot;34&quot;
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="untitled-3.html" class="navigation navigation-prev " aria-label="Previous page: 4-Redis数据结构-有序集合">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="untitled-5.html" class="navigation navigation-next " aria-label="Next page: 6-Redis持久化储存">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"5-redis数据结构 – 哈希","level":"5.2.6","depth":2,"next":{"title":"6-Redis持久化储存","level":"5.2.7","depth":2,"path":"shu-ju-ku/redis/untitled-5.md","ref":"shu-ju-ku/redis/untitled-5.md","articles":[]},"previous":{"title":"4-Redis数据结构-有序集合","level":"5.2.5","depth":2,"path":"shu-ju-ku/redis/untitled-3.md","ref":"shu-ju-ku/redis/untitled-3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"shu-ju-ku/redis/untitled-4.md","mtime":"2019-12-22T13:29:18.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-28T05:50:56.828Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
