@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>0.第一段代码 · GitBook</title>
+        <title>3.条件和循环 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="1-变量和常量.html" />
+    <link rel="next" href="4-数组和切片.html" />
     
     
-    <link rel="prev" href="./" />
+    <link rel="prev" href="2-类型转换.html" />
     
 
     </head>
@@ -123,7 +123,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="2.1.1" data-path="0-hello-world.html">
+        <li class="chapter " data-level="2.1.1" data-path="0-hello-world.html">
             
                 <a href="0-hello-world.html">
             
@@ -162,7 +162,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.4" data-path="3-条件和循环.html">
+        <li class="chapter active" data-level="2.1.4" data-path="3-条件和循环.html">
             
                 <a href="3-条件和循环.html">
             
@@ -236,7 +236,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >0.第一段代码</a>
+        <a href="../.." >3.条件和循环</a>
     </h1>
 </div>
 
@@ -251,30 +251,95 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="0&#x7B2C;&#x4E00;&#x6BB5;go&#x7A0B;&#x5E8F;">0.&#x7B2C;&#x4E00;&#x6BB5;Go&#x7A0B;&#x5E8F;</h1>
-<p>&#x8001;&#x89C4;&#x77E9;&#xFF0C;&#x9996;&#x5148;&#x4ECE;&#x4E00;&#x4E2A;Hello World&#x7A0B;&#x5E8F;&#x5F00;&#x59CB;&#x7F16;&#x5199;&#x7B2C;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;</p>
-<p>&#x6BCF;&#x4E00;&#x4E2A;Go&#x4EE3;&#x7801;&#x7684;&#x9879;&#x76EE;&#xFF0C;&#x90FD;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;main&#x5305;&#x4E0E;main&#x51FD;&#x6570;</p>
-<p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;Go&#x8BED;&#x8A00;&#x7684;manin&#x51FD;&#x6570;&#x5E76;&#x4E0D;&#x63A5;&#x53D7;&#x4EFB;&#x4F55;&#x53C2;&#x6570;&#x4EE5;&#x53CA;&#x65E0;&#x4EFB;&#x4F55;&#x8FD4;&#x56DE;&#x503C;</p>
-<pre><code class="lang-GO"><span class="hljs-comment">//main&#x5305;&#x4E2D;&#x7684;main&#x51FD;&#x6570;&#x662F;&#x7A0B;&#x5E8F;&#x7684;&#x5165;&#x53E3;</span>
-<span class="hljs-keyword">package</span> main  <span class="hljs-comment">//&#x5305;&#x58F0;&#x660E;&#xFF0C;&#x8868;&#x660E;&#x4EE3;&#x7801;&#x6240;&#x5C5E;&#x6A21;&#x5757;</span>
+                                <h1 id="3&#x6761;&#x4EF6;&#x548C;&#x5FAA;&#x73AF;">3.&#x6761;&#x4EF6;&#x548C;&#x5FAA;&#x73AF;</h1>
+<h2 id="&#x5FAA;&#x73AF;">&#x5FAA;&#x73AF;</h2>
+<blockquote>
+<p>Go&#x8BED;&#x8A00;&#x53EA;&#x652F;&#x6301;for&#x5FAA;&#x73AF;</p>
+</blockquote>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main  
 
 <span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
-<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;os&quot;</span>
 
-<span class="hljs-comment">//&#x51FD;&#x6570;&#x5B9E;&#x73B0;,main&#x51FD;&#x6570;&#x4E0D;&#x63A5;&#x53D7;&#x4EFB;&#x4F55;&#x53C2;&#x6570;,&#x901A;&#x8FC7;os.Args&#x83B7;&#x53D6;&#x53C2;&#x6570;</span>
 <span class="hljs-keyword">func</span> main(){
-    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(os.Args) &gt; <span class="hljs-number">1</span>{
-        fmt.Println(<span class="hljs-string">&quot;Hello World! This is &quot;</span> + os.Args[<span class="hljs-number">1</span>])
-        os.Exit(<span class="hljs-number">0</span>)    <span class="hljs-comment">//main&#x51FD;&#x6570;&#x65E0;&#x4EFB;&#x4F55;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x901A;&#x8FC7;exit&#x6765;&#x8FD4;&#x56DE;&#x72B6;&#x6001;</span>
-    }
-    os.Exit(<span class="hljs-number">-1</span>)
+   n := <span class="hljs-number">1</span>
+   #&#x65B9;&#x5F0F; <span class="hljs-number">1</span>
+   <span class="hljs-keyword">for</span> n &lt; <span class="hljs-number">5</span>:{
+      n++
+      fmt.Println(n)
+   }
+   #&#x65B9;&#x5F0F; <span class="hljs-number">2</span>
+   <span class="hljs-keyword">for</span> i:=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">10</span>;{
+      fmt.Println(<span class="hljs-string">&quot;Hello World! &quot;</span>)
+      i++
+   }
+   #&#x6B7B;&#x5FAA;&#x73AF;
+   <span class="hljs-keyword">for</span> {
+      fmt.Println(n)
+   }
 }
 </code></pre>
-<p>Go&#x4EE3;&#x7801;&#x600E;&#x4E48;&#x8FD0;&#x884C;&#x5462;&#xFF1F;&#x8FD9;&#x91CC;&#x63D0;&#x4F9B;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;</p>
-<pre><code class="lang-go">&#x4EE3;&#x7801;&#x8FD0;&#x884C;&#x65B9;&#x5F0F;:
-<span class="hljs-number">1.</span>&#x76F4;&#x63A5;&#x8FD0;&#x884C;: <span class="hljs-keyword">go</span> run <span class="hljs-number">1</span>_hello.<span class="hljs-keyword">go</span>
-<span class="hljs-number">2.</span>&#x7F16;&#x8BD1;&#x8FD0;&#x884C;: <span class="hljs-keyword">go</span> build <span class="hljs-number">1</span>_hello.<span class="hljs-keyword">go</span>; ./hello
+<h2 id="&#x6761;&#x4EF6;">&#x6761;&#x4EF6;</h2>
+<blockquote>
+<p>Go&#x8BED;&#x8A00;&#x6761;&#x4EF6;&#x5224;&#x65AD;condition&#x53EA;&#x652F;&#x6301;bool&#x503C;</p>
+<p>&#x652F;&#x6301;&#x53D8;&#x91CF;&#x8D4B;&#x503C;</p>
+</blockquote>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> condition_test
+
+<span class="hljs-keyword">import</span> (
+   <span class="hljs-string">&quot;testing&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> TestCondition(t *testing.T){
+   t.Log(<span class="hljs-string">&quot;My Unit Test!&quot;</span>)
+   <span class="hljs-comment">//&#x65B9;&#x5F0F;1</span>
+   a:=<span class="hljs-number">1</span>
+   <span class="hljs-keyword">if</span> a==<span class="hljs-number">1</span> {
+      t.Log(<span class="hljs-string">&quot;ok&quot;</span>)
+   } <span class="hljs-keyword">else</span> {
+      t.Log(<span class="hljs-string">&quot;notok&quot;</span>)
+   }
+
+   <span class="hljs-comment">//&#x8FD8;&#x652F;&#x6301;&#x4EE5;&#x4E0B;&#x5199;&#x6CD5;(&#x53D8;&#x91CF;&#x8D4B;&#x503C;)</span>
+   <span class="hljs-keyword">if</span> b:= <span class="hljs-number">1</span>==<span class="hljs-number">1</span>;b{
+      t.Log(<span class="hljs-string">&quot;true&quot;</span>)
+   } <span class="hljs-keyword">else</span>{
+      t.Log(<span class="hljs-string">&quot;false&quot;</span>)
+   }
+}
 </code></pre>
+<h2 id="switch">switch</h2>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+   <span class="hljs-string">&quot;fmt&quot;</span>
+   <span class="hljs-string">&quot;runtime&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> main(){
+   <span class="hljs-comment">//&#x7528;&#x6CD5;1</span>
+   <span class="hljs-keyword">switch</span> os:=runtime.GOOS;os{
+   <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;darwin&quot;</span>:  <span class="hljs-comment">//case&#x7684;&#x6761;&#x4EF6;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;&#x503C;</span>
+      fmt.Println(<span class="hljs-string">&quot;OS X&quot;</span>)
+      <span class="hljs-comment">//break go&#x8BED;&#x8A00;&#x4E0D;&#x9700;&#x8981;&#x4F7F;&#x7528;break</span>
+   <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;linux&quot;</span>:
+      fmt.Println(<span class="hljs-string">&quot;Linux&quot;</span>)
+   <span class="hljs-keyword">default</span>:
+      fmt.Println(<span class="hljs-string">&quot;%s&quot;</span>,os)
+   }
+
+   <span class="hljs-comment">//&#x7528;&#x6CD5;2</span>
+   i := <span class="hljs-number">1</span>
+   <span class="hljs-keyword">switch</span> {
+   <span class="hljs-keyword">case</span> i &lt; <span class="hljs-number">1</span>:
+      fmt.Println(<span class="hljs-string">&quot;&lt;1&quot;</span>)
+   <span class="hljs-keyword">case</span> i&gt;=<span class="hljs-number">1</span>:
+      fmt.Println(<span class="hljs-string">&quot;&gt;=1&quot;</span>)
+   <span class="hljs-keyword">default</span>:
+      fmt.Println(<span class="hljs-string">&quot;err&quot;</span>)
+   }
+}
+</code></pre>
+<p> </p>
 
                                 
                                 </section>
@@ -302,12 +367,12 @@
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Go语言学习笔记">
+                <a href="2-类型转换.html" class="navigation navigation-prev " aria-label="Previous page: 2.类型转换">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="1-变量和常量.html" class="navigation navigation-next " aria-label="Next page: 1.变量&常量">
+                <a href="4-数组和切片.html" class="navigation navigation-next " aria-label="Next page: 4.数组和切片">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -318,7 +383,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"0.第一段代码","level":"2.1.1","depth":2,"next":{"title":"1.变量&常量","level":"2.1.2","depth":2,"path":"A-编码知识/A1-Go语言学习笔记/1-变量和常量.md","ref":"A-编码知识/A1-Go语言学习笔记/1-变量和常量.md","articles":[]},"previous":{"title":"Go语言学习笔记","level":"2.1","depth":1,"path":"A-编码知识/A1-Go语言学习笔记/README.md","ref":"A-编码知识/A1-Go语言学习笔记/README.md","articles":[{"title":"0.第一段代码","level":"2.1.1","depth":2,"path":"A-编码知识/A1-Go语言学习笔记/0-hello-world.md","ref":"A-编码知识/A1-Go语言学习笔记/0-hello-world.md","articles":[]},{"title":"1.变量&常量","level":"2.1.2","depth":2,"path":"A-编码知识/A1-Go语言学习笔记/1-变量和常量.md","ref":"A-编码知识/A1-Go语言学习笔记/1-变量和常量.md","articles":[]},{"title":"2.类型转换","level":"2.1.3","depth":2,"path":"A-编码知识/A1-Go语言学习笔记/2-类型转换.md","ref":"A-编码知识/A1-Go语言学习笔记/2-类型转换.md","articles":[]},{"title":"3.条件和循环","level":"2.1.4","depth":2,"path":"A-编码知识/A1-Go语言学习笔记/3-条件和循环.md","ref":"A-编码知识/A1-Go语言学习笔记/3-条件和循环.md","articles":[]},{"title":"4.数组和切片","level":"2.1.5","depth":2,"path":"A-编码知识/A1-Go语言学习笔记/4-数组和切片.md","ref":"A-编码知识/A1-Go语言学习笔记/4-数组和切片.md","articles":[]},{"title":"5.map","level":"2.1.6","depth":2,"path":"A-编码知识/A1-Go语言学习笔记/5-map.md","ref":"A-编码知识/A1-Go语言学习笔记/5-map.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"A-编码知识/A1-Go语言学习笔记/0-hello-world.md","mtime":"2019-12-28T06:41:09.514Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-28T08:14:56.335Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.条件和循环","level":"2.1.4","depth":2,"next":{"title":"4.数组和切片","level":"2.1.5","depth":2,"path":"A-编码知识/A1-Go语言学习笔记/4-数组和切片.md","ref":"A-编码知识/A1-Go语言学习笔记/4-数组和切片.md","articles":[]},"previous":{"title":"2.类型转换","level":"2.1.3","depth":2,"path":"A-编码知识/A1-Go语言学习笔记/2-类型转换.md","ref":"A-编码知识/A1-Go语言学习笔记/2-类型转换.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"A-编码知识/A1-Go语言学习笔记/3-条件和循环.md","mtime":"2019-12-28T07:37:27.267Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-28T08:14:56.335Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
