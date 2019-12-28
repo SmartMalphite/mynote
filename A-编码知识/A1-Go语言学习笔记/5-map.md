@@ -77,3 +77,68 @@ for k,v := range m4 {
    fmt.Println(k,v)
 }
 ```
+
+## Map元素的删除
+
+```go
+delete(m1,"one")
+```
+
+## 通过Map实现工厂模式
+
+```Go
+package main
+
+import "fmt"
+
+func main(){
+   m1 := map[int]func(op int)int{}
+   m1[1] = func(op int) int {return op}
+   m1[2] = func(op int) int {return op*op}
+   m1[3] = func(op int) int {return op*op*op}
+
+   fmt.Println(m1[1](2))
+   fmt.Println(m1[2](2))
+   fmt.Println(m1[3](2))
+
+}
+```
+
+## 也可以通过Map实现一个set
+
+```go
+package main
+
+import "fmt"
+
+func main(){
+	 //一个set的基本要求
+   //可以添加元素且元素不重复
+   //判断元素是否存在
+   //删除元素
+   //元素个数
+
+   set := map[int]bool{}
+  
+   //添加元素
+   set[1] = true
+   set[3] = true
+   set[1] = true
+   fmt.Println(set)
+  
+	 //判断元素是否存在
+   n := 1
+   if set[n] {
+      fmt.Println("exist")
+   }else{
+      fmt.Println("not exist")
+   }
+
+   //元素数量
+   fmt.Println(len(set))
+   
+   //删除元素
+   delete(set,n)
+   fmt.Println(set)
+```
+

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>2.类型转换 · GitBook</title>
+        <title>7.函数 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="3-条件和循环.html" />
     
-    
-    <link rel="prev" href="1-变量和常量.html" />
+    <link rel="prev" href="6-字符串.html" />
     
 
     </head>
@@ -149,7 +147,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.1.3" data-path="2-类型转换.html">
+        <li class="chapter " data-level="2.1.3" data-path="2-类型转换.html">
             
                 <a href="2-类型转换.html">
             
@@ -214,7 +212,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.8" data-path="7-函数.html">
+        <li class="chapter active" data-level="2.1.8" data-path="7-函数.html">
             
                 <a href="7-函数.html">
             
@@ -262,7 +260,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >2.类型转换</a>
+        <a href="../.." >7.函数</a>
     </h1>
 </div>
 
@@ -277,45 +275,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="2&#x7C7B;&#x578B;&#x8F6C;&#x6362;">2.&#x7C7B;&#x578B;&#x8F6C;&#x6362;</h1>
-<blockquote>
-<p>Go&#x8BED;&#x8A00;&#x4E0D;&#x652F;&#x6301;&#x4EFB;&#x4F55;&#x9690;&#x5F0F;&#x7C7B;&#x578B;&#x8F6C;&#x6362;</p>
-<p>&#x4E5F;&#x4E0D;&#x652F;&#x6301;&#x6307;&#x9488;&#x8FD0;&#x7B97;</p>
-</blockquote>
-<h3 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x5982;&#x4E0B;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x5982;&#x4E0B;</h3>
-<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
-
-<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
-<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;math&quot;</span>
-
-<span class="hljs-keyword">type</span> Myint <span class="hljs-keyword">int64</span>
-
-<span class="hljs-keyword">func</span> main(){
-    <span class="hljs-comment">//go&#x4E0D;&#x652F;&#x6301;&#x4EFB;&#x4F55;&#x9690;&#x5F0F;&#x7C7B;&#x578B;&#x8F6C;&#x6362;</span>
-    <span class="hljs-keyword">var</span> a <span class="hljs-keyword">int</span> = <span class="hljs-number">1</span>
-    <span class="hljs-keyword">var</span> b <span class="hljs-keyword">int64</span> = <span class="hljs-number">2</span>
-    <span class="hljs-keyword">var</span> c Myint = <span class="hljs-number">3</span>
-    <span class="hljs-comment">//a = b</span>
-    <span class="hljs-comment">//&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x8FD0;&#x884C;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x5373;&#x4F7F;&#x5728;64&#x4F4D;&#x673A;&#x4E0A;int&#x578B;&#x5C31;&#x662F;int64&#x7C7B;&#x578B;&#xFF0C;&#x4F46;go&#x9650;&#x5236;&#x4EFB;&#x4F55;&#x9690;&#x5F0F;&#x7C7B;&#x578B;&#x8F6C;&#x6362;</span>
-    <span class="hljs-comment">//b = c    //&#x5373;&#x4F7F;&#x662F;&#x522B;&#x540D;&#xFF0C;&#x4E5F;&#x4E0D;&#x5141;&#x8BB8;</span>
-    a = <span class="hljs-keyword">int</span>(b)
-    b = <span class="hljs-keyword">int64</span>(c)
-    <span class="hljs-comment">//&#x4F7F;&#x7528;&#x663E;&#x793A;&#x7C7B;&#x578B;&#x8F6C;&#x6362;</span>
-    fmt.Println(a,b)
-
-    <span class="hljs-comment">//&#x7C7B;&#x578B;&#x7684;&#x9884;&#x5B9A;&#x4E49;&#x503C;</span>
-    fmt.Println(math.MaxInt64,math.MaxUint32)
-
-    <span class="hljs-comment">//&#x6307;&#x9488;</span>
-    d := <span class="hljs-number">1</span>
-    dPtr := &amp;d
-    fmt.Println(d,dPtr)
-    <span class="hljs-comment">//go&#x8BED;&#x8A00;&#x4E0D;&#x652F;&#x6301;&#x6307;&#x9488;&#x8FD0;&#x7B97;</span>
-    <span class="hljs-comment">//dPtr = dPtr+1        //&#x8FD0;&#x884C;&#x4F1A;&#x62A5;&#x9519;</span>
-
-}
-</code></pre>
-
+                                
                                 
                                 </section>
                             
@@ -342,14 +302,10 @@
 
             
                 
-                <a href="1-变量和常量.html" class="navigation navigation-prev " aria-label="Previous page: 1.变量&常量">
+                <a href="6-字符串.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 6.字符串">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="3-条件和循环.html" class="navigation navigation-next " aria-label="Next page: 3.条件和循环">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -358,7 +314,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.类型转换","level":"2.1.3","depth":2,"next":{"title":"3.条件和循环","level":"2.1.4","depth":2,"path":"A-编码知识/A1-Go语言学习笔记/3-条件和循环.md","ref":"A-编码知识/A1-Go语言学习笔记/3-条件和循环.md","articles":[]},"previous":{"title":"1.变量&常量","level":"2.1.2","depth":2,"path":"A-编码知识/A1-Go语言学习笔记/1-变量和常量.md","ref":"A-编码知识/A1-Go语言学习笔记/1-变量和常量.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"A-编码知识/A1-Go语言学习笔记/2-类型转换.md","mtime":"2019-12-28T07:36:58.963Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-28T15:41:27.464Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"7.函数","level":"2.1.8","depth":2,"previous":{"title":"6.字符串","level":"2.1.7","depth":2,"path":"A-编码知识/A1-Go语言学习笔记/6-字符串.md","ref":"A-编码知识/A1-Go语言学习笔记/6-字符串.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"A-编码知识/A1-Go语言学习笔记/7-函数.md","mtime":"2019-12-28T15:41:21.911Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-28T15:41:27.464Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
