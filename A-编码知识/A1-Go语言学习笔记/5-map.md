@@ -67,3 +67,13 @@ func main(){
 }
 ```
 
+## Map的遍历
+
+遍历方式与数组和切片相同
+
+```go
+m4 :=map[int]string{1:"one",2:"two"}
+for k,v := range m4 {
+   fmt.Println(k,v)
+}
+```
