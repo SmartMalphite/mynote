@@ -57,6 +57,8 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="../../B-性能测试专题/" />
+    
     
     <link rel="prev" href="6-字符串.html" />
     
@@ -230,6 +232,38 @@
             
         </li>
     
+        <li class="chapter " data-level="2.2" data-path="../../B-性能测试专题/">
+            
+                <a href="../../B-性能测试专题/">
+            
+                    
+                    性能测试专题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../../B-性能测试专题/01-性能综述.html">
+            
+                <a href="../../B-性能测试专题/01-性能综述.html">
+            
+                    
+                    1.性能综述
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
 
     
 
@@ -275,7 +309,40 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="07&#x51FD;&#x6570;">07|&#x51FD;&#x6570;</h1>
+<blockquote>
+<p> Go&#x8BED;&#x8A00;&#x4E2D;&#x7684;&#x51FD;&#x6570;&#x4E2D;&#x6240;&#x6709;&#x53C2;&#x6570;&#x90FD;&#x662F;&#x503C;&#x4F20;&#x9012;&#xFF0C;slice&#x3001;map&#x3001;channel&#x4F1A;&#x6709;&#x5F15;&#x7528;&#x4F20;&#x9012;&#x7684;&#x9519;&#x89C9;&#x662F;&#x56E0;&#x4E3A;&#x5728;&#x62F7;&#x8D1D;&#x7684;&#x65F6;&#x5019;&#x8FDE;&#x540C;&#x6307;&#x9488;&#x7684;&#x5730;&#x5740;&#x4E00;&#x540C;&#x62F7;&#x8D1D;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x51FD;&#x6570;&#x4E2D;&#x4FEE;&#x6539;&#x65F6;&#x5176;&#x5B9E;&#x64CD;&#x4F5C;&#x7684;&#x662F;&#x540C;&#x4E00;&#x5757;&#x5185;&#x5B58;&#x7A7A;&#x95F4;</p>
+</blockquote>
+<p>Go&#x8BED;&#x8A00;&#x4E2D;&#xFF0C;&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x4E00;&#x7B49;&#x516C;&#x6C11;&#xFF0C;&#x662F;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4E5F;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x8FD4;&#x56DE;&#x503C;&#x7684;&#xFF0C;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x6839;&#x636E;&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;&#x6709;&#x8DA3;&#x7684;&#x51FD;&#x6570;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;time&quot;</span>
+)
+
+<span class="hljs-comment">//&#x8BE5;&#x51FD;&#x6570;&#x7684;&#x5165;&#x53C2;&#x548C;&#x8FD4;&#x56DE;&#x5747;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x7528;&#x4E8E;&#x7EDF;&#x8BA1;&#x51FD;&#x6570;&#x8FD0;&#x884C;&#x8017;&#x65F6;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;&#x5176;&#x4ED6;&#x8BED;&#x8A00;&#x4E2D;&#x7684;&#x88C5;&#x9970;&#x5668;</span>
+<span class="hljs-keyword">func</span> timeSpent(inner <span class="hljs-keyword">func</span>(op <span class="hljs-keyword">int</span>) <span class="hljs-keyword">int</span>) <span class="hljs-keyword">func</span>(op <span class="hljs-keyword">int</span>) <span class="hljs-keyword">int</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(n <span class="hljs-keyword">int</span>) <span class="hljs-keyword">int</span> {
+        start := time.Now()
+        ret := inner(n)
+        fmt.Println(<span class="hljs-string">&quot;time spent:&quot;</span>,time.Since(start).Seconds())
+        <span class="hljs-keyword">return</span> ret
+    }
+}
+
+<span class="hljs-keyword">func</span> slowFunc(op <span class="hljs-keyword">int</span>) <span class="hljs-keyword">int</span> {
+    time.Sleep(time.Second*<span class="hljs-number">1</span>)
+    <span class="hljs-keyword">return</span> op
+}
+
+
+<span class="hljs-keyword">func</span> main(){
+    tsSlowFunc := timeSpent(slowFunc)
+    tsSlowFunc(<span class="hljs-number">20</span>)
+}
+</code></pre>
+
                                 
                                 </section>
                             
@@ -302,10 +369,14 @@
 
             
                 
-                <a href="6-字符串.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 6.字符串">
+                <a href="6-字符串.html" class="navigation navigation-prev " aria-label="Previous page: 6.字符串">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="../../B-性能测试专题/" class="navigation navigation-next " aria-label="Next page: 性能测试专题">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -314,7 +385,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"7.函数","level":"2.1.8","depth":2,"previous":{"title":"6.字符串","level":"2.1.7","depth":2,"path":"A-编码知识/A1-Go语言学习笔记/6-字符串.md","ref":"A-编码知识/A1-Go语言学习笔记/6-字符串.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"A-编码知识/A1-Go语言学习笔记/7-函数.md","mtime":"2019-12-28T15:41:21.911Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-28T15:41:27.464Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"7.函数","level":"2.1.8","depth":2,"next":{"title":"性能测试专题","level":"2.2","depth":1,"path":"B-性能测试专题/README.md","ref":"B-性能测试专题/README.md","articles":[{"title":"1.性能综述","level":"2.2.1","depth":2,"path":"B-性能测试专题/01-性能综述.md","ref":"B-性能测试专题/01-性能综述.md","articles":[]}]},"previous":{"title":"6.字符串","level":"2.1.7","depth":2,"path":"A-编码知识/A1-Go语言学习笔记/6-字符串.md","ref":"A-编码知识/A1-Go语言学习笔记/6-字符串.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"A-编码知识/A1-Go语言学习笔记/7-函数.md","mtime":"2019-12-30T08:12:38.121Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-30T08:15:43.888Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
