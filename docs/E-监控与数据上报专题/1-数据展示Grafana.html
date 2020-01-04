@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>B-性能测试专题 · GitBook</title>
+        <title>1.数据展示Grafana · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="01-性能综述.html" />
+    <link rel="next" href="2-数据存储InfluxDB.html" />
     
     
-    <link rel="prev" href="../A-编码知识/A1-Go语言学习笔记/8-可变参数和defer.html" />
+    <link rel="prev" href="./" />
     
 
     </head>
@@ -249,9 +249,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.2" data-path="./">
+        <li class="chapter " data-level="2.2" data-path="../B-性能测试专题/">
             
-                <a href="./">
+                <a href="../B-性能测试专题/">
             
                     
                     B-性能测试专题
@@ -263,9 +263,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="2.2.1" data-path="01-性能综述.html">
+        <li class="chapter " data-level="2.2.1" data-path="../B-性能测试专题/01-性能综述.html">
             
-                <a href="01-性能综述.html">
+                <a href="../B-性能测试专题/01-性能综述.html">
             
                     
                     1.性能综述
@@ -276,9 +276,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2.2" data-path="02-常用性能指标.html">
+        <li class="chapter " data-level="2.2.2" data-path="../B-性能测试专题/02-常用性能指标.html">
             
-                <a href="02-常用性能指标.html">
+                <a href="../B-性能测试专题/02-常用性能指标.html">
             
                     
                     2.性能综述
@@ -289,9 +289,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2.3" data-path="B1-压测工具/">
+        <li class="chapter " data-level="2.2.3" data-path="../B-性能测试专题/B1-压测工具/">
             
-                <a href="B1-压测工具/">
+                <a href="../B-性能测试专题/B1-压测工具/">
             
                     
                     B1-压测工具
@@ -303,9 +303,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="2.2.3.1" data-path="B1-压测工具/Locust.html">
+        <li class="chapter " data-level="2.2.3.1" data-path="../B-性能测试专题/B1-压测工具/Locust.html">
             
-                <a href="B1-压测工具/Locust.html">
+                <a href="../B-性能测试专题/B1-压测工具/Locust.html">
             
                     
                     Locust
@@ -326,9 +326,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3" data-path="../E-监控与数据上报专题/">
+        <li class="chapter " data-level="2.3" data-path="./">
             
-                <a href="../E-监控与数据上报专题/">
+                <a href="./">
             
                     
                     E-监控与数据上报专题
@@ -340,9 +340,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="2.3.1" data-path="../E-监控与数据上报专题/1-数据展示Grafana.html">
+        <li class="chapter active" data-level="2.3.1" data-path="1-数据展示Grafana.html">
             
-                <a href="../E-监控与数据上报专题/1-数据展示Grafana.html">
+                <a href="1-数据展示Grafana.html">
             
                     
                     1.数据展示Grafana
@@ -353,9 +353,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3.2" data-path="../E-监控与数据上报专题/2-数据存储InfluxDB.html">
+        <li class="chapter " data-level="2.3.2" data-path="2-数据存储InfluxDB.html">
             
-                <a href="../E-监控与数据上报专题/2-数据存储InfluxDB.html">
+                <a href="2-数据存储InfluxDB.html">
             
                     
                     2.数据存储InfluxDB
@@ -401,7 +401,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >B-性能测试专题</a>
+        <a href=".." >1.数据展示Grafana</a>
     </h1>
 </div>
 
@@ -416,7 +416,47 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x4E13;&#x9898;">&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x4E13;&#x9898;</h1>
+                                <h1 id="&#x6570;&#x636E;&#x53EF;&#x89C6;&#x5316;grafana">&#x6570;&#x636E;&#x53EF;&#x89C6;&#x5316;|Grafana</h1>
+<blockquote>
+<p>grafana &#x662F;&#x4E00;&#x6B3E;&#x91C7;&#x7528; go &#x8BED;&#x8A00;&#x7F16;&#x5199;&#x7684;&#x5F00;&#x6E90;&#x5E94;&#x7528;&#xFF0C;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x5927;&#x89C4;&#x6A21;&#x6307;&#x6807;&#x6570;&#x636E;&#x7684;&#x53EF;&#x89C6;&#x5316;&#x5C55;&#x73B0;&#xFF0C;&#x662F;&#x7F51;&#x7EDC;&#x67B6;&#x6784;&#x548C;&#x5E94;&#x7528;&#x5206;&#x6790;&#x4E2D;&#x6700;&#x6D41;&#x884C;&#x7684;<strong>&#x65F6;&#x5E8F;&#x6570;&#x636E;&#x5C55;&#x793A;</strong>&#x5DE5;&#x5177;&#xFF0C;&#x76EE;&#x524D;&#x5DF2;&#x7ECF;&#x652F;&#x6301;&#x7EDD;&#x5927;&#x90E8;&#x5206;&#x5E38;&#x7528;&#x7684;&#x65F6;&#x5E8F;&#x6570;&#x636E;&#x5E93;&#x3002;&#x6700;&#x597D;&#x7684;&#x53C2;&#x8003;&#x8D44;&#x6599;&#x5C31;&#x662F;&#x5B98;&#x7F51;&#xFF08;<a href="https://links.jianshu.com/go?to=http%3A%2F%2Fdocs.grafana.org%2F" target="_blank">http://docs.grafana.org/</a>&#xFF09;</p>
+</blockquote>
+<h2 id="1&#x57FA;&#x672C;&#x6982;&#x5FF5;">1.&#x57FA;&#x672C;&#x6982;&#x5FF5;</h2>
+<p>Grafana&#x652F;&#x6301;&#x8BB8;&#x591A;&#x4E0D;&#x540C;&#x7684;&#x6570;&#x636E;&#x6E90;&#x3002;&#x6BCF;&#x4E2A;&#x6570;&#x636E;&#x6E90;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x67E5;&#x8BE2;&#x7F16;&#x8F91;&#x5668;,&#x8BE5;&#x7F16;&#x8F91;&#x5668;&#x5B9A;&#x5236;&#x7684;&#x7279;&#x6027;&#x548C;&#x529F;&#x80FD;&#x662F;&#x516C;&#x5F00;&#x7684;&#x7279;&#x5B9A;&#x6570;&#x636E;&#x6765;&#x6E90;&#x3002; &#x5B98;&#x65B9;&#x652F;&#x6301;&#x4EE5;&#x4E0B;&#x6570;&#x636E;&#x6E90;:Graphite&#xFF0C;Elasticsearch&#xFF0C;InfluxDB&#xFF0C;Prometheus&#xFF0C;Cloudwatch&#xFF0C;MySQL&#x548C;OpenTSDB&#x7B49;&#x3002;</p>
+<p>&#x6BCF;&#x4E2A;&#x6570;&#x636E;&#x6E90;&#x7684;&#x67E5;&#x8BE2;&#x8BED;&#x8A00;&#x548C;&#x80FD;&#x529B;&#x90FD;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x628A;&#x6765;&#x81EA;&#x591A;&#x4E2A;&#x6570;&#x636E;&#x6E90;&#x7684;&#x6570;&#x636E;&#x7EC4;&#x5408;&#x5230;&#x4E00;&#x4E2A;&#x4EEA;&#x8868;&#x677F;&#xFF0C;&#x4F46;&#x6BCF;&#x4E00;&#x4E2A;&#x9762;&#x677F;&#x88AB;&#x7ED1;&#x5B9A;&#x5230;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x6570;&#x636E;&#x6E90;,&#x5B83;&#x5C31;&#x5C5E;&#x4E8E;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x7EC4;&#x7EC7;&#x3002;</p>
+<p><img src="../pic/image-20200103165117622.png" alt="image-20200103165117622"></p>
+<h2 id="&#x90E8;&#x7F72;-for-macos">&#x90E8;&#x7F72; for macOS</h2>
+<p>&#x53EF;&#x53C2;&#x8003;&#xFF08;<a href="https://grafana.com/docs/grafana/latest/installation/mac/" target="_blank">grafana&#x5B98;&#x7F51;&#x5B89;&#x88C5;&#x8BF4;&#x660E;</a>&#x3001;<a href="https://links.jianshu.com/go?to=http%3A%2F%2Fblog.51cto.com%2F13447608%2F2299747" target="_blank">grafana&#x9177;&#x70AB;&#x56FE;&#x8868;</a>&#xFF09;</p>
+<h2 id="install-using-homebrew">Install using homebrew</h2>
+<p>Installation can be done using <a href="http://brew.sh/" target="_blank">homebrew</a></p>
+<p>Install latest stable:</p>
+<pre><code class="lang-bash">brew update
+brew install grafana
+</code></pre>
+<p>To start grafana look at the command printed after the homebrew install completes.</p>
+<p>To upgrade use the reinstall command</p>
+<pre><code class="lang-bash">brew update
+brew reinstall grafana
+</code></pre>
+<hr>
+<p>You can also install the latest unstable grafana from git:</p>
+<pre><code class="lang-bash">brew install --HEAD grafana/grafana/grafana
+</code></pre>
+<p>To upgrade grafana if you&#x2019;ve installed from HEAD:</p>
+<pre><code class="lang-bash">brew reinstall --HEAD grafana/grafana/grafana
+</code></pre>
+<h3 id="start-grafana">Start Grafana</h3>
+<p>To start Grafana using homebrew services first make sure homebrew/services is installed.</p>
+<pre><code class="lang-bash">brew tap homebrew/services
+</code></pre>
+<p>Then start Grafana using:</p>
+<pre><code class="lang-bash">brew services start grafana
+</code></pre>
+<p>Default login and password <code>admin</code>/ <code>admin</code></p>
+<h2 id="install-from-binary-tar-file">Install from binary tar file</h2>
+<p>Download <a href="https://grafana.com/get" target="_blank">the latest <code>.tar.gz</code> file</a> and extract it. This will extract into a folder named after the version you downloaded. This folder contains all files required to run Grafana. There are no init scripts or install scripts in this package.</p>
+<p>To configure Grafana add a configuration file named <code>custom.ini</code> to the <code>conf</code> folder and override any of the settings defined in <code>conf/defaults.ini</code>.</p>
+<h3 id="start-grafana">Start Grafana</h3>
+<p>Start Grafana by executing <code>./bin/grafana-server</code>. The <code>grafana-server</code> binary needs the working directory to be the root install directory (where the binary and the <code>public</code> folder is located).</p>
 
                                 
                                 </section>
@@ -444,12 +484,12 @@
 
             
                 
-                <a href="../A-编码知识/A1-Go语言学习笔记/8-可变参数和defer.html" class="navigation navigation-prev " aria-label="Previous page: 8.可变长参数和defer">
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: E-监控与数据上报专题">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="01-性能综述.html" class="navigation navigation-next " aria-label="Next page: 1.性能综述">
+                <a href="2-数据存储InfluxDB.html" class="navigation navigation-next " aria-label="Next page: 2.数据存储InfluxDB">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -460,7 +500,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"B-性能测试专题","level":"2.2","depth":1,"next":{"title":"1.性能综述","level":"2.2.1","depth":2,"path":"B-性能测试专题/01-性能综述.md","ref":"B-性能测试专题/01-性能综述.md","articles":[]},"previous":{"title":"8.可变长参数和defer","level":"2.1.9","depth":2,"path":"A-编码知识/A1-Go语言学习笔记/8-可变参数和defer.md","ref":"A-编码知识/A1-Go语言学习笔记/8-可变参数和defer.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"B-性能测试专题/README.md","mtime":"2020-01-04T15:32:20.951Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-04T15:38:56.191Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.数据展示Grafana","level":"2.3.1","depth":2,"next":{"title":"2.数据存储InfluxDB","level":"2.3.2","depth":2,"path":"E-监控与数据上报专题/2-数据存储InfluxDB.md","ref":"E-监控与数据上报专题/2-数据存储InfluxDB.md","articles":[]},"previous":{"title":"E-监控与数据上报专题","level":"2.3","depth":1,"path":"E-监控与数据上报专题/README.md","ref":"E-监控与数据上报专题/README.md","articles":[{"title":"1.数据展示Grafana","level":"2.3.1","depth":2,"path":"E-监控与数据上报专题/1-数据展示Grafana.md","ref":"E-监控与数据上报专题/1-数据展示Grafana.md","articles":[]},{"title":"2.数据存储InfluxDB","level":"2.3.2","depth":2,"path":"E-监控与数据上报专题/2-数据存储InfluxDB.md","ref":"E-监控与数据上报专题/2-数据存储InfluxDB.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"E-监控与数据上报专题/1-数据展示Grafana.md","mtime":"2020-01-03T09:03:13.899Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-04T15:38:56.191Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
