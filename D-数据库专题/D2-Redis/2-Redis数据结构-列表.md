@@ -1,4 +1,4 @@
-# 2-Redis数据结构-列表
+# 02|Redis数据结构-列表
 
 ## redis数据结构 – lists
 

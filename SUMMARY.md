@@ -36,7 +36,7 @@
 * [数据库专题](D-数据库专题/README.md)
   * [Mysql](D-数据库专题/D1-Mysql/README.md)
   * [Redis](D-数据库专题/D2-Redis/README.md)
-    * [0.Redis基础](D-数据库专题/D2-Redis/README.md)
+    * [0.Redis基础](D-数据库专题/D2-Redis/0-Redis基础.md)
     * [1.Redis数据结构-字符串](D-数据库专题/D2-Redis/1-Redis数据结构-字符串.md)
     * [2.Redis数据结构-列表](D-数据库专题/D2-Redis/2-Redis数据结构-列表.md)
     * [3.Redis数据结构-集合](D-数据库专题/D2-Redis/3-Redis数据结构-集合.md)
