@@ -52,12 +52,13 @@
     * [2.Protobuf+HTTP](D-基础知识/D2-通信协议/D2.1-GRPC/2.PB+HTTP.md)
     * [3.Protobuf+GRPC](D-基础知识/D2-通信协议/D2.1-GRPC/3.PB+GRPC.md)
     * [4.流式grpc调用](D-基础知识/D2-通信协议/D2.1-GRPC/4.流式GRPC调用.md)
+* [算法&数据结构](D-基础知识/D3-算法&数据结构/README.md)
+  * [1.乐观锁](D-基础知识/D3-算法&数据结构/1.乐观锁.md)
 
 ## 常用工具
 
-* [常用工具](C-工具使用/README.md)
-  * [监控与数据上报专题](C-工具使用/C1-监控与数据上报专题/README.md)
-    * [1.数据展示Grafana](C-工具使用/C1-监控与数据上报专题/1-数据展示Grafana.md)
-    * [2.数据存储InfluxDB](C-工具使用/C1-监控与数据上报专题/2-数据存储InfluxDB.md)
-    * [3.Locust日志上报](C-工具使用/C1-监控与数据上报专题/3-Locust日志上报.md)
+* [监控与数据上报专题](C-工具使用/C1-监控与数据上报专题/README.md)
+  * [1.数据展示Grafana](C-工具使用/C1-监控与数据上报专题/1-数据展示Grafana.md)
+  * [2.数据存储InfluxDB](C-工具使用/C1-监控与数据上报专题/2-数据存储InfluxDB.md)
+  * [3.Locust日志上报](C-工具使用/C1-监控与数据上报专题/3-Locust日志上报.md)
 
