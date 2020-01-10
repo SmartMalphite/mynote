@@ -1,0 +1,1001 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>7.Redis的事务 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../../D2-通信协议/" />
+    
+    
+    <link rel="prev" href="6-Redis持久化储存.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    欢迎访问
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">编码知识</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../../A-编码知识/A1-Go语言学习笔记/">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/">
+            
+                    
+                    Go语言学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../../../A-编码知识/A1-Go语言学习笔记/0-hello-world.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/0-hello-world.html">
+            
+                    
+                    0.第一段代码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../../../A-编码知识/A1-Go语言学习笔记/1-变量和常量.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/1-变量和常量.html">
+            
+                    
+                    1.变量&常量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../../../A-编码知识/A1-Go语言学习笔记/2-类型转换.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/2-类型转换.html">
+            
+                    
+                    2.类型转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../../../A-编码知识/A1-Go语言学习笔记/3-条件和循环.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/3-条件和循环.html">
+            
+                    
+                    3.条件和循环
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../../../A-编码知识/A1-Go语言学习笔记/4-数组和切片.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/4-数组和切片.html">
+            
+                    
+                    4.数组和切片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../../../A-编码知识/A1-Go语言学习笔记/5-map.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/5-map.html">
+            
+                    
+                    5.map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../../../A-编码知识/A1-Go语言学习笔记/6-字符串.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/6-字符串.html">
+            
+                    
+                    6.字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../../../A-编码知识/A1-Go语言学习笔记/7-函数.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/7-函数.html">
+            
+                    
+                    7.函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="../../../A-编码知识/A1-Go语言学习笔记/8-可变参数和defer.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/8-可变参数和defer.html">
+            
+                    
+                    8.可变长参数和defer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10" data-path="../../../A-编码知识/A1-Go语言学习笔记/9-行为的定义和实现.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/9-行为的定义和实现.html">
+            
+                    
+                    9.行为的定义和实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.11" data-path="../../../A-编码知识/A1-Go语言学习笔记/10-接口的定义.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/10-接口的定义.html">
+            
+                    
+                    10.接口的定义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.12" data-path="../../../A-编码知识/A1-Go语言学习笔记/11-Go的继承.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/11-Go的继承.html">
+            
+                    
+                    11.Go的继承
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.13" data-path="../../../A-编码知识/A1-Go语言学习笔记/12-多态.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/12-多态.html">
+            
+                    
+                    12.多态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.14" data-path="../../../A-编码知识/A1-Go语言学习笔记/13-空接口断言.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/13-空接口断言.html">
+            
+                    
+                    13.空接口断言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.15" data-path="../../../A-编码知识/A1-Go语言学习笔记/14-Go语言的异常.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/14-Go语言的异常.html">
+            
+                    
+                    14.Go语言的异常
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.16" data-path="../../../A-编码知识/A1-Go语言学习笔记/15-包管理.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/15-包管理.html">
+            
+                    
+                    15.包管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.17" data-path="../../../A-编码知识/A1-Go语言学习笔记/附1-值传递or引用传递.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/附1-值传递or引用传递.html">
+            
+                    
+                    附1-值传递or引用传递
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.18" data-path="../../../A-编码知识/A1-Go语言学习笔记/附2-Go微服务代码覆盖率&性能监控.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/附2-Go微服务代码覆盖率&性能监控.html">
+            
+                    
+                    附2-Go微服务代码覆盖率&性能监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">性能测试</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../../B-性能测试专题/">
+            
+                <a href="../../../B-性能测试专题/">
+            
+                    
+                    性能测试专题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../../B-性能测试专题/01-性能综述.html">
+            
+                <a href="../../../B-性能测试专题/01-性能综述.html">
+            
+                    
+                    1.性能综述-性能测试的概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../../B-性能测试专题/02-常用性能指标.html">
+            
+                <a href="../../../B-性能测试专题/02-常用性能指标.html">
+            
+                    
+                    2.性能综述-性能指标的解释
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../../../B-性能测试专题/B1-压测工具/">
+            
+                <a href="../../../B-性能测试专题/B1-压测工具/">
+            
+                    
+                    压测工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.3.1" data-path="../../../B-性能测试专题/B1-压测工具/1.Locust使用.html">
+            
+                <a href="../../../B-性能测试专题/B1-压测工具/1.Locust使用.html">
+            
+                    
+                    Locust
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.2" data-path="../../../B-性能测试专题/B1-压测工具/2.Go重写slave.html">
+            
+                <a href="../../../B-性能测试专题/B1-压测工具/2.Go重写slave.html">
+            
+                    
+                    Go+Locust
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">基础知识</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    数据库专题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../D1.1-Mysql/">
+            
+                <a href="../D1.1-Mysql/">
+            
+                    
+                    Mysql
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Redis
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.2.1" data-path="0-Redis基础.html">
+            
+                <a href="0-Redis基础.html">
+            
+                    
+                    0.Redis基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.2" data-path="1-Redis数据结构-字符串.html">
+            
+                <a href="1-Redis数据结构-字符串.html">
+            
+                    
+                    1.Redis数据结构-字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.3" data-path="2-Redis数据结构-列表.html">
+            
+                <a href="2-Redis数据结构-列表.html">
+            
+                    
+                    2.Redis数据结构-列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.4" data-path="3-Redis数据结构-集合.html">
+            
+                <a href="3-Redis数据结构-集合.html">
+            
+                    
+                    3.Redis数据结构-集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.5" data-path="4-Redis数据结构-有序集合.html">
+            
+                <a href="4-Redis数据结构-有序集合.html">
+            
+                    
+                    4.Redis数据结构-有序集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.6" data-path="5-Redis数据结构-哈希.md">
+            
+                <span>
+            
+                    
+                    5.Redis数据结构-哈希
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.7" data-path="6-Redis持久化储存.html">
+            
+                <a href="6-Redis持久化储存.html">
+            
+                    
+                    6.Redis持久化储存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.1.2.8" data-path="7-redis的事务机制.html">
+            
+                <a href="7-redis的事务机制.html">
+            
+                    
+                    7.Redis的事务
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../../D2-通信协议/">
+            
+                <a href="../../D2-通信协议/">
+            
+                    
+                    通信协议
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../../D2-通信协议/D2.1-GRPC/">
+            
+                <a href="../../D2-通信协议/D2.1-GRPC/">
+            
+                    
+                    GRPC
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1.1" data-path="../../D2-通信协议/D2.1-GRPC/1.Protobuf.html">
+            
+                <a href="../../D2-通信协议/D2.1-GRPC/1.Protobuf.html">
+            
+                    
+                    1.Protobuf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.1.2" data-path="../../D2-通信协议/D2.1-GRPC/2.PB+HTTP.html">
+            
+                <a href="../../D2-通信协议/D2.1-GRPC/2.PB+HTTP.html">
+            
+                    
+                    2.Protobuf+HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.1.3" data-path="../../D2-通信协议/D2.1-GRPC/3.PB+GRPC.html">
+            
+                <a href="../../D2-通信协议/D2.1-GRPC/3.PB+GRPC.html">
+            
+                    
+                    3.Protobuf+GRPC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.1.4" data-path="../../D2-通信协议/D2.1-GRPC/4.流式GRPC调用.html">
+            
+                <a href="../../D2-通信协议/D2.1-GRPC/4.流式GRPC调用.html">
+            
+                    
+                    4.流式grpc调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">常用工具</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../../../C-工具使用/">
+            
+                <a href="../../../C-工具使用/">
+            
+                    
+                    常用工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../../../C-工具使用/C1-监控与数据上报专题/">
+            
+                <a href="../../../C-工具使用/C1-监控与数据上报专题/">
+            
+                    
+                    监控与数据上报专题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1.1" data-path="../../../C-工具使用/C1-监控与数据上报专题/1-数据展示Grafana.html">
+            
+                <a href="../../../C-工具使用/C1-监控与数据上报专题/1-数据展示Grafana.html">
+            
+                    
+                    1.数据展示Grafana
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.2" data-path="../../../C-工具使用/C1-监控与数据上报专题/2-数据存储InfluxDB.html">
+            
+                <a href="../../../C-工具使用/C1-监控与数据上报专题/2-数据存储InfluxDB.html">
+            
+                    
+                    2.数据存储InfluxDB
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.3" data-path="../../../C-工具使用/C1-监控与数据上报专题/3-Locust日志上报.html">
+            
+                <a href="../../../C-工具使用/C1-监控与数据上报专题/3-Locust日志上报.html">
+            
+                    
+                    3.Locust日志上报
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >7.Redis的事务</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="07redis&#x7684;&#x4E8B;&#x52A1;&#x673A;&#x5236;">07|redis&#x7684;&#x4E8B;&#x52A1;&#x673A;&#x5236;</h1>
+<h2 id="&#x804A;&#x804A;redis&#x7684;&#x4E8B;&#x52A1;&#x5904;&#x7406;">&#x804A;&#x804A;redis&#x7684;&#x4E8B;&#x52A1;&#x5904;&#x7406;</h2>
+<p>&#x4F17;&#x6240;&#x5468;&#x77E5;&#xFF0C;&#x4E8B;&#x52A1;&#x662F;&#x6307;&#x201C;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x52A8;&#x4F5C;&#xFF0C;&#x8981;&#x4E48;&#x5168;&#x90E8;&#x6267;&#x884C;&#xFF0C;&#x8981;&#x4E48;&#x4EC0;&#x4E48;&#x4E5F;&#x6CA1;&#x6709;&#x505A;&#x201D;&#x3002;&#x200C;</p>
+<p>&#x5728;&#x804A;redis&#x4E8B;&#x52A1;&#x5904;&#x7406;&#x4E4B;&#x524D;&#xFF0C;&#x8981;&#x5148;&#x548C;&#x5927;&#x5BB6;&#x4ECB;&#x7ECD;&#x56DB;&#x4E2A;redis&#x6307;&#x4EE4;&#xFF0C;&#x5373;MULTI&#x3001;EXEC&#x3001;DISCARD&#x3001;WATCH&#x3002;&#x8FD9;&#x56DB;&#x4E2A;&#x6307;&#x4EE4;&#x6784;&#x6210;&#x4E86;redis&#x4E8B;&#x52A1;&#x5904;&#x7406;&#x7684;&#x57FA;&#x7840;&#x3002;</p>
+<pre><code>1.MULTI&#x7528;&#x6765;&#x7EC4;&#x88C5;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#xFF1B;
+2.EXEC&#x7528;&#x6765;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#xFF1B;
+3.DISCARD&#x7528;&#x6765;&#x53D6;&#x6D88;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#xFF1B;
+4.WATCH&#x7528;&#x6765;&#x76D1;&#x89C6;&#x4E00;&#x4E9B;key&#xFF0C;&#x4E00;&#x65E6;&#x8FD9;&#x4E9B;key&#x5728;&#x4E8B;&#x52A1;&#x6267;&#x884C;&#x4E4B;&#x524D;&#x88AB;&#x6539;&#x53D8;&#xFF0C;&#x5219;&#x53D6;&#x6D88;&#x4E8B;&#x52A1;&#x7684;&#x6267;&#x884C;&#x3002;
+</code></pre><p>&#x7EB8;&#x4E0A;&#x5F97;&#x6765;&#x7EC8;&#x89C9;&#x6D45;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x4E2A;MULTI&#x548C;EXEC&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code>redis&gt; MULTI //&#x6807;&#x8BB0;&#x4E8B;&#x52A1;&#x5F00;&#x59CB;
+OK
+redis&gt; INCR user_id //&#x591A;&#x6761;&#x547D;&#x4EE4;&#x6309;&#x987A;&#x5E8F;&#x5165;&#x961F;
+QUEUED
+redis&gt; INCR user_id
+QUEUED
+redis&gt; INCR user_id
+QUEUED
+redis&gt; PING
+QUEUED
+redis&gt; EXEC //&#x6267;&#x884C;
+1) (integer) 1
+2) (integer) 2
+3) (integer) 3
+4) PONG&#x200C;
+</code></pre><p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x770B;&#x5230;&#x4E86;QUEUED&#x7684;&#x5B57;&#x6837;&#xFF0C;&#x8FD9;&#x8868;&#x793A;&#x6211;&#x4EEC;&#x5728;&#x7528;MULTI&#x7EC4;&#x88C5;&#x4E8B;&#x52A1;&#x65F6;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;&#x547D;&#x4EE4;&#x90FD;&#x4F1A;&#x8FDB;&#x5165;&#x5230;&#x5185;&#x5B58;&#x961F;&#x5217;&#x4E2D;&#x7F13;&#x5B58;&#x8D77;&#x6765;&#xFF0C;&#x5982;&#x679C;&#x51FA;&#x73B0;QUEUED&#x5219;&#x8868;&#x793A;&#x6211;&#x4EEC;&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#x6210;&#x529F;&#x63D2;&#x5165;&#x4E86;&#x7F13;&#x5B58;&#x961F;&#x5217;&#xFF0C;&#x5728;&#x5C06;&#x6765;&#x6267;&#x884C;EXEC&#x65F6;&#xFF0C;&#x8FD9;&#x4E9B;&#x88AB;QUEUED&#x7684;&#x547D;&#x4EE4;&#x90FD;&#x4F1A;&#x88AB;&#x7EC4;&#x88C5;&#x6210;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#x6765;&#x6267;&#x884C;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x4E8B;&#x52A1;&#x7684;&#x6267;&#x884C;&#x6765;&#x8BF4;&#xFF0C;&#x5982;&#x679C;redis&#x5F00;&#x542F;&#x4E86;AOF&#x6301;&#x4E45;&#x5316;&#x7684;&#x8BDD;&#xFF0C;&#x90A3;&#x4E48;&#x4E00;&#x65E6;&#x4E8B;&#x52A1;&#x88AB;&#x6210;&#x529F;&#x6267;&#x884C;&#xFF0C;&#x4E8B;&#x52A1;&#x4E2D;&#x7684;&#x547D;&#x4EE4;&#x5C31;&#x4F1A;&#x901A;&#x8FC7;write&#x547D;&#x4EE4;&#x4E00;&#x6B21;&#x6027;&#x5199;&#x5230;&#x78C1;&#x76D8;&#x4E2D;&#x53BB;&#xFF0C;&#x5982;&#x679C;&#x5728;&#x5411;&#x78C1;&#x76D8;&#x4E2D;&#x5199;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x6070;&#x597D;&#x51FA;&#x73B0;&#x65AD;&#x7535;&#x3001;&#x786C;&#x4EF6;&#x6545;&#x969C;&#x7B49;&#x95EE;&#x9898;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x53EA;&#x6709;&#x90E8;&#x5206;&#x547D;&#x4EE4;&#x8FDB;&#x884C;&#x4E86;AOF&#x6301;&#x4E45;&#x5316;&#xFF0C;&#x8FD9;&#x65F6;AOF&#x6587;&#x4EF6;&#x5C31;&#x4F1A;&#x51FA;&#x73B0;&#x4E0D;&#x5B8C;&#x6574;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x8FD9;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;redis-check-aof&#x5DE5;&#x5177;&#x6765;&#x4FEE;&#x590D;&#x8FD9;&#x4E00;&#x95EE;&#x9898;&#xFF0C;&#x8FD9;&#x4E2A;&#x5DE5;&#x5177;&#x4F1A;&#x5C06;AOF&#x6587;&#x4EF6;&#x4E2D;&#x4E0D;&#x5B8C;&#x6574;&#x7684;&#x4FE1;&#x606F;&#x79FB;&#x9664;&#xFF0C;&#x786E;&#x4FDD;AOF&#x6587;&#x4EF6;&#x5B8C;&#x6574;&#x53EF;&#x7528;&#x3002;</p>
+<h3 id="&#x6709;&#x5173;&#x4E8B;&#x52A1;&#xFF0C;&#x5927;&#x5BB6;&#x7ECF;&#x5E38;&#x4F1A;&#x9047;&#x5230;&#x7684;&#x662F;&#x4E24;&#x7C7B;&#x9519;&#x8BEF;&#xFF1A;">&#x6709;&#x5173;&#x4E8B;&#x52A1;&#xFF0C;&#x5927;&#x5BB6;&#x7ECF;&#x5E38;&#x4F1A;&#x9047;&#x5230;&#x7684;&#x662F;&#x4E24;&#x7C7B;&#x9519;&#x8BEF;&#xFF1A;</h3>
+<pre><code>1.&#x8C03;&#x7528;EXEC&#x4E4B;&#x524D;&#x7684;&#x9519;&#x8BEF;
+2.&#x8C03;&#x7528;EXEC&#x4E4B;&#x540E;&#x7684;&#x9519;&#x8BEF;
+</code></pre><p>&#x201C;&#x8C03;&#x7528;EXEC&#x4E4B;&#x524D;&#x7684;&#x9519;&#x8BEF;&#x201D;&#xFF0C;&#x6709;&#x53EF;&#x80FD;&#x662F;&#x7531;&#x4E8E;&#x8BED;&#x6CD5;&#x6709;&#x8BEF;&#x5BFC;&#x81F4;&#x7684;&#xFF0C;&#x4E5F;&#x53EF;&#x80FD;&#x65F6;&#x7531;&#x4E8E;&#x5185;&#x5B58;&#x4E0D;&#x8DB3;&#x5BFC;&#x81F4;&#x7684;&#x3002;&#x53EA;&#x8981;&#x51FA;&#x73B0;&#x67D0;&#x4E2A;&#x547D;&#x4EE4;&#x65E0;&#x6CD5;&#x6210;&#x529F;&#x5199;&#x5165;&#x7F13;&#x51B2;&#x961F;&#x5217;&#x7684;&#x60C5;&#x51B5;&#xFF0C;redis&#x90FD;&#x4F1A;&#x8FDB;&#x884C;&#x8BB0;&#x5F55;&#xFF0C;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x8C03;&#x7528;EXEC&#x65F6;&#xFF0C;redis&#x4F1A;&#x62D2;&#x7EDD;&#x6267;&#x884C;&#x8FD9;&#x4E00;&#x4E8B;&#x52A1;&#x3002;&#xFF08;&#x8FD9;&#x65F6;2.6.5&#x7248;&#x672C;&#x4E4B;&#x540E;&#x7684;&#x7B56;&#x7565;&#x3002;&#x5728;2.6.5&#x4E4B;&#x524D;&#x7684;&#x7248;&#x672C;&#x4E2D;&#xFF0C;redis&#x4F1A;&#x5FFD;&#x7565;&#x90A3;&#x4E9B;&#x5165;&#x961F;&#x5931;&#x8D25;&#x7684;&#x547D;&#x4EE4;&#xFF0C;&#x53EA;&#x6267;&#x884C;&#x90A3;&#x4E9B;&#x5165;&#x961F;&#x6210;&#x529F;&#x7684;&#x547D;&#x4EE4;&#xFF09;&#x3002;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x4E2A;&#x8FD9;&#x6837;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code>127.0.0.1:6379&gt; multi
+OK
+127.0.0.1:6379&gt; haha //&#x4E00;&#x4E2A;&#x660E;&#x663E;&#x9519;&#x8BEF;&#x7684;&#x6307;&#x4EE4;
+(error) ERR unknown command &apos;haha&apos;
+127.0.0.1:6379&gt; ping
+QUEUED
+127.0.0.1:6379&gt; exec
+//redis&#x65E0;&#x60C5;&#x7684;&#x62D2;&#x7EDD;&#x4E86;&#x4E8B;&#x52A1;&#x7684;&#x6267;&#x884C;&#xFF0C;&#x539F;&#x56E0;&#x662F;&#x201C;&#x4E4B;&#x524D;&#x51FA;&#x73B0;&#x4E86;&#x9519;&#x8BEF;&#x201D;
+(error) EXECABORT Transaction discarded because of previous errors.
+</code></pre><p>&#x800C;&#x5BF9;&#x4E8E;&#x201C;&#x8C03;&#x7528;EXEC&#x4E4B;&#x540E;&#x7684;&#x9519;&#x8BEF;&#x201D;&#xFF0C;redis&#x5219;&#x91C7;&#x53D6;&#x4E86;&#x5B8C;&#x5168;&#x4E0D;&#x540C;&#x7684;&#x7B56;&#x7565;&#xFF0C;&#x5373;redis&#x4E0D;&#x4F1A;&#x7406;&#x776C;&#x8FD9;&#x4E9B;&#x9519;&#x8BEF;&#xFF0C;&#x800C;&#x662F;&#x7EE7;&#x7EED;&#x5411;&#x4E0B;&#x6267;&#x884C;&#x4E8B;&#x52A1;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x547D;&#x4EE4;&#x3002;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#xFF0C;&#x5BF9;&#x4E8E;&#x5E94;&#x7528;&#x5C42;&#x9762;&#x7684;&#x9519;&#x8BEF;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;redis&#x81EA;&#x8EAB;&#x9700;&#x8981;&#x8003;&#x8651;&#x548C;&#x5904;&#x7406;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x6240;&#x4EE5;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#x4E2D;&#x5982;&#x679C;&#x67D0;&#x4E00;&#x6761;&#x547D;&#x4EE4;&#x6267;&#x884C;&#x5931;&#x8D25;&#xFF0C;&#x5E76;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x63A5;&#x4E0B;&#x6765;&#x7684;&#x5176;&#x4ED6;&#x547D;&#x4EE4;&#x7684;&#x6267;&#x884C;&#x3002;&#x6211;&#x4EEC;&#x4E5F;&#x6765;&#x770B;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code>127.0.0.1:6379&gt; multi
+OK
+127.0.0.1:6379&gt; set age 23
+QUEUED
+//age&#x4E0D;&#x662F;&#x96C6;&#x5408;&#xFF0C;&#x6240;&#x4EE5;&#x5982;&#x4E0B;&#x662F;&#x4E00;&#x6761;&#x660E;&#x663E;&#x9519;&#x8BEF;&#x7684;&#x6307;&#x4EE4;
+127.0.0.1:6379&gt; sadd age 15 
+QUEUED
+127.0.0.1:6379&gt; set age 29
+QUEUED
+127.0.0.1:6379&gt; exec //&#x6267;&#x884C;&#x4E8B;&#x52A1;&#x65F6;&#xFF0C;redis&#x4E0D;&#x4F1A;&#x7406;&#x776C;&#x7B2C;2&#x6761;&#x6307;&#x4EE4;&#x6267;&#x884C;&#x9519;&#x8BEF;
+1) OK
+2) (error) WRONGTYPE Operation against a key holding the wrong kind of value
+3) OK
+127.0.0.1:6379&gt; get age
+&quot;29&quot; //&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x7B2C;3&#x6761;&#x6307;&#x4EE4;&#x88AB;&#x6210;&#x529F;&#x6267;&#x884C;&#x4E86;&#x200C;
+</code></pre><p>&#x597D;&#x4E86;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x8BF4;&#x8BF4;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x6307;&#x4EE4;&#x201C;WATCH&#x201D;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x597D;&#x7528;&#x7684;&#x6307;&#x4EE4;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x5E2E;&#x6211;&#x4EEC;&#x5B9E;&#x73B0;&#x7C7B;&#x4F3C;&#x4E8E;&#x201C;&#x4E50;&#x89C2;&#x9501;&#x201D;&#x7684;&#x6548;&#x679C;&#xFF0C;&#x5373;CAS&#xFF08;check and set&#xFF09;&#x3002;</p>
+<p>WATCH&#x672C;&#x8EAB;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x201C;&#x76D1;&#x89C6;key&#x662F;&#x5426;&#x88AB;&#x6539;&#x52A8;&#x8FC7;&#x201D;&#xFF0C;&#x800C;&#x4E14;&#x652F;&#x6301;&#x540C;&#x65F6;&#x76D1;&#x89C6;&#x591A;&#x4E2A;key&#xFF0C;&#x53EA;&#x8981;&#x8FD8;&#x6CA1;&#x771F;&#x6B63;&#x89E6;&#x53D1;&#x4E8B;&#x52A1;&#xFF0C;WATCH&#x90FD;&#x4F1A;&#x5C3D;&#x804C;&#x5C3D;&#x8D23;&#x7684;&#x76D1;&#x89C6;&#xFF0C;&#x4E00;&#x65E6;&#x53D1;&#x73B0;&#x67D0;&#x4E2A;key&#x88AB;&#x4FEE;&#x6539;&#x4E86;&#xFF0C;&#x5728;&#x6267;&#x884C;EXEC&#x65F6;&#x5C31;&#x4F1A;&#x8FD4;&#x56DE;nil&#xFF0C;&#x8868;&#x793A;&#x4E8B;&#x52A1;&#x65E0;&#x6CD5;&#x89E6;&#x53D1;&#x3002;</p>
+<pre><code>127.0.0.1:6379&gt; set age 23
+OK
+127.0.0.1:6379&gt; watch age //&#x5F00;&#x59CB;&#x76D1;&#x89C6;age
+OK
+127.0.0.1:6379&gt; set age 24 //&#x5728;EXEC&#x4E4B;&#x524D;&#xFF0C;age&#x7684;&#x503C;&#x88AB;&#x4FEE;&#x6539;&#x4E86;
+OK
+127.0.0.1:6379&gt; multi
+OK
+127.0.0.1:6379&gt; set age 25
+QUEUED
+127.0.0.1:6379&gt; get age
+QUEUED
+127.0.0.1:6379&gt; exec //&#x89E6;&#x53D1;EXEC
+(nil) //&#x4E8B;&#x52A1;&#x65E0;&#x6CD5;&#x88AB;&#x6267;&#x884C;
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="6-Redis持久化储存.html" class="navigation navigation-prev " aria-label="Previous page: 6.Redis持久化储存">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../../D2-通信协议/" class="navigation navigation-next " aria-label="Next page: 通信协议">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"7.Redis的事务","level":"4.1.2.8","depth":3,"next":{"title":"通信协议","level":"4.2","depth":1,"path":"D-基础知识/D2-通信协议/README.md","ref":"D-基础知识/D2-通信协议/README.md","articles":[{"title":"GRPC","level":"4.2.1","depth":2,"path":"D-基础知识/D2-通信协议/D2.1-GRPC/README.md","ref":"D-基础知识/D2-通信协议/D2.1-GRPC/README.md","articles":[{"title":"1.Protobuf","level":"4.2.1.1","depth":3,"path":"D-基础知识/D2-通信协议/D2.1-GRPC/1.Protobuf.md","ref":"D-基础知识/D2-通信协议/D2.1-GRPC/1.Protobuf.md","articles":[]},{"title":"2.Protobuf+HTTP","level":"4.2.1.2","depth":3,"path":"D-基础知识/D2-通信协议/D2.1-GRPC/2.PB+HTTP.md","ref":"D-基础知识/D2-通信协议/D2.1-GRPC/2.PB+HTTP.md","articles":[]},{"title":"3.Protobuf+GRPC","level":"4.2.1.3","depth":3,"path":"D-基础知识/D2-通信协议/D2.1-GRPC/3.PB+GRPC.md","ref":"D-基础知识/D2-通信协议/D2.1-GRPC/3.PB+GRPC.md","articles":[]},{"title":"4.流式grpc调用","level":"4.2.1.4","depth":3,"path":"D-基础知识/D2-通信协议/D2.1-GRPC/4.流式GRPC调用.md","ref":"D-基础知识/D2-通信协议/D2.1-GRPC/4.流式GRPC调用.md","articles":[]}]}]},"previous":{"title":"6.Redis持久化储存","level":"4.1.2.7","depth":3,"path":"D-基础知识/D1-数据库专题/D1.2-Redis/6-Redis持久化储存.md","ref":"D-基础知识/D1-数据库专题/D1.2-Redis/6-Redis持久化储存.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"D-基础知识/D1-数据库专题/D1.2-Redis/7-redis的事务机制.md","mtime":"2020-01-09T08:49:43.768Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-10T08:07:14.825Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
