@@ -1,0 +1,1354 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>28.反射编程 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="29-不安全编程.html" />
+    
+    
+    <link rel="prev" href="27-BDD.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    欢迎访问
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">编码知识</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Go语言学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="0-hello-world.html">
+            
+                <a href="0-hello-world.html">
+            
+                    
+                    0.第一段代码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="1-变量和常量.html">
+            
+                <a href="1-变量和常量.html">
+            
+                    
+                    1.变量&常量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="2-类型转换.html">
+            
+                <a href="2-类型转换.html">
+            
+                    
+                    2.类型转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="3-条件和循环.html">
+            
+                <a href="3-条件和循环.html">
+            
+                    
+                    3.条件和循环
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="4-数组和切片.html">
+            
+                <a href="4-数组和切片.html">
+            
+                    
+                    4.数组和切片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="5-map.html">
+            
+                <a href="5-map.html">
+            
+                    
+                    5.map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="6-字符串.html">
+            
+                <a href="6-字符串.html">
+            
+                    
+                    6.字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="7-函数.html">
+            
+                <a href="7-函数.html">
+            
+                    
+                    7.函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="8-可变参数和defer.html">
+            
+                <a href="8-可变参数和defer.html">
+            
+                    
+                    8.可变长参数和defer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10" data-path="9-行为的定义和实现.html">
+            
+                <a href="9-行为的定义和实现.html">
+            
+                    
+                    9.行为的定义和实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.11" data-path="10-接口的定义.html">
+            
+                <a href="10-接口的定义.html">
+            
+                    
+                    10.接口的定义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.12" data-path="11-Go的继承.html">
+            
+                <a href="11-Go的继承.html">
+            
+                    
+                    11.Go的继承
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.13" data-path="12-多态.html">
+            
+                <a href="12-多态.html">
+            
+                    
+                    12.多态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.14" data-path="13-空接口断言.html">
+            
+                <a href="13-空接口断言.html">
+            
+                    
+                    13.空接口断言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.15" data-path="14-Go语言的异常.html">
+            
+                <a href="14-Go语言的异常.html">
+            
+                    
+                    14.Go语言的异常
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.16" data-path="15-包管理.html">
+            
+                <a href="15-包管理.html">
+            
+                    
+                    15.包管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.17" data-path="16-协程机制.html">
+            
+                <a href="16-协程机制.html">
+            
+                    
+                    16.协程机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.18" data-path="17-共享内存并发机制.html">
+            
+                <a href="17-共享内存并发机制.html">
+            
+                    
+                    17.共享内存并发机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.19" data-path="18-CSP并发.html">
+            
+                <a href="18-CSP并发.html">
+            
+                    
+                    18.CSP并发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.20" data-path="19-多路选择和超时控制.html">
+            
+                <a href="19-多路选择和超时控制.html">
+            
+                    
+                    19.多路选择和超时控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.21" data-path="20-channel的关闭和广播.html">
+            
+                <a href="20-channel的关闭和广播.html">
+            
+                    
+                    20.channel的关闭和广播
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.22" data-path="21-context与任务取消.html">
+            
+                <a href="21-context与任务取消.html">
+            
+                    
+                    21.context与任务取消
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.23" data-path="22-典型并发模式.html">
+            
+                <a href="22-典型并发模式.html">
+            
+                    
+                    22.典型并发模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.24" data-path="23-对象池.html">
+            
+                <a href="23-对象池.html">
+            
+                    
+                    23.对象池
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.25" data-path="24-sync.Pool.html">
+            
+                <a href="24-sync.Pool.html">
+            
+                    
+                    24.sync.Pool
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.26" data-path="25-单元测试.html">
+            
+                <a href="25-单元测试.html">
+            
+                    
+                    25.单元测试l
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.27" data-path="26-Benchmark.html">
+            
+                <a href="26-Benchmark.html">
+            
+                    
+                    26.Benchmark
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.28" data-path="27-BDD.html">
+            
+                <a href="27-BDD.html">
+            
+                    
+                    27.BDD
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.1.29" data-path="28-反射编程.html">
+            
+                <a href="28-反射编程.html">
+            
+                    
+                    28.反射编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.30" data-path="29-不安全编程.html">
+            
+                <a href="29-不安全编程.html">
+            
+                    
+                    29.不安全编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.31" data-path="30-常见架构模式.html">
+            
+                <a href="30-常见架构模式.html">
+            
+                    
+                    30.常见架构模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.32" data-path="31-常用框架.html">
+            
+                <a href="31-常用框架.html">
+            
+                    
+                    31.常用框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.33" data-path="附1-值传递or引用传递.html">
+            
+                <a href="附1-值传递or引用传递.html">
+            
+                    
+                    附1-值传递or引用传递
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.34" data-path="附2-Go微服务代码覆盖率&性能监控.html">
+            
+                <a href="附2-Go微服务代码覆盖率&性能监控.html">
+            
+                    
+                    附2-Go微服务代码覆盖率&性能监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../A2-Python学习笔记/">
+            
+                <a href="../A2-Python学习笔记/">
+            
+                    
+                    Python学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../A2-Python学习笔记/附1-orm框架的使用.html">
+            
+                <a href="../A2-Python学习笔记/附1-orm框架的使用.html">
+            
+                    
+                    附1-orm框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">性能测试</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../B-性能测试专题/">
+            
+                <a href="../../B-性能测试专题/">
+            
+                    
+                    性能测试专题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../B-性能测试专题/01-性能综述.html">
+            
+                <a href="../../B-性能测试专题/01-性能综述.html">
+            
+                    
+                    1.性能综述-性能测试的概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../B-性能测试专题/02-常用性能指标.html">
+            
+                <a href="../../B-性能测试专题/02-常用性能指标.html">
+            
+                    
+                    2.性能综述-性能指标的解释
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../../B-性能测试专题/B1-压测工具/">
+            
+                <a href="../../B-性能测试专题/B1-压测工具/">
+            
+                    
+                    压测工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.3.1" data-path="../../B-性能测试专题/B1-压测工具/1.Locust使用.html">
+            
+                <a href="../../B-性能测试专题/B1-压测工具/1.Locust使用.html">
+            
+                    
+                    Locust
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.2" data-path="../../B-性能测试专题/B1-压测工具/2.Go重写slave.html">
+            
+                <a href="../../B-性能测试专题/B1-压测工具/2.Go重写slave.html">
+            
+                    
+                    Go+Locust
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">基础知识</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../D-基础知识/D1-数据库专题/">
+            
+                <a href="../../D-基础知识/D1-数据库专题/">
+            
+                    
+                    数据库专题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../../D-基础知识/D1-数据库专题/D1.1-Mysql/">
+            
+                <a href="../../D-基础知识/D1-数据库专题/D1.1-Mysql/">
+            
+                    
+                    Mysql
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../../D-基础知识/D1-数据库专题/D1.2-Redis/">
+            
+                <a href="../../D-基础知识/D1-数据库专题/D1.2-Redis/">
+            
+                    
+                    Redis
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.2.1" data-path="../../D-基础知识/D1-数据库专题/D1.2-Redis/0-Redis基础.html">
+            
+                <a href="../../D-基础知识/D1-数据库专题/D1.2-Redis/0-Redis基础.html">
+            
+                    
+                    0.Redis基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.2" data-path="../../D-基础知识/D1-数据库专题/D1.2-Redis/1-Redis数据结构-字符串.html">
+            
+                <a href="../../D-基础知识/D1-数据库专题/D1.2-Redis/1-Redis数据结构-字符串.html">
+            
+                    
+                    1.Redis数据结构-字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.3" data-path="../../D-基础知识/D1-数据库专题/D1.2-Redis/2-Redis数据结构-列表.html">
+            
+                <a href="../../D-基础知识/D1-数据库专题/D1.2-Redis/2-Redis数据结构-列表.html">
+            
+                    
+                    2.Redis数据结构-列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.4" data-path="../../D-基础知识/D1-数据库专题/D1.2-Redis/3-Redis数据结构-集合.html">
+            
+                <a href="../../D-基础知识/D1-数据库专题/D1.2-Redis/3-Redis数据结构-集合.html">
+            
+                    
+                    3.Redis数据结构-集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.5" data-path="../../D-基础知识/D1-数据库专题/D1.2-Redis/4-Redis数据结构-有序集合.html">
+            
+                <a href="../../D-基础知识/D1-数据库专题/D1.2-Redis/4-Redis数据结构-有序集合.html">
+            
+                    
+                    4.Redis数据结构-有序集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.6" data-path="../../D-基础知识/D1-数据库专题/D1.2-Redis/5-Redis数据结构-哈希.md">
+            
+                <span>
+            
+                    
+                    5.Redis数据结构-哈希
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.7" data-path="../../D-基础知识/D1-数据库专题/D1.2-Redis/6-Redis持久化储存.html">
+            
+                <a href="../../D-基础知识/D1-数据库专题/D1.2-Redis/6-Redis持久化储存.html">
+            
+                    
+                    6.Redis持久化储存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.8" data-path="../../D-基础知识/D1-数据库专题/D1.2-Redis/7-redis的事务机制.html">
+            
+                <a href="../../D-基础知识/D1-数据库专题/D1.2-Redis/7-redis的事务机制.html">
+            
+                    
+                    7.Redis的事务
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../../D-基础知识/D2-通信协议/">
+            
+                <a href="../../D-基础知识/D2-通信协议/">
+            
+                    
+                    通信协议
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../../D-基础知识/D2-通信协议/D2.1-GRPC/">
+            
+                <a href="../../D-基础知识/D2-通信协议/D2.1-GRPC/">
+            
+                    
+                    GRPC
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1.1" data-path="../../D-基础知识/D2-通信协议/D2.1-GRPC/1.Protobuf.html">
+            
+                <a href="../../D-基础知识/D2-通信协议/D2.1-GRPC/1.Protobuf.html">
+            
+                    
+                    1.Protobuf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.1.2" data-path="../../D-基础知识/D2-通信协议/D2.1-GRPC/2.PB+HTTP.html">
+            
+                <a href="../../D-基础知识/D2-通信协议/D2.1-GRPC/2.PB+HTTP.html">
+            
+                    
+                    2.Protobuf+HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.1.3" data-path="../../D-基础知识/D2-通信协议/D2.1-GRPC/3.PB+GRPC.html">
+            
+                <a href="../../D-基础知识/D2-通信协议/D2.1-GRPC/3.PB+GRPC.html">
+            
+                    
+                    3.Protobuf+GRPC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.1.4" data-path="../../D-基础知识/D2-通信协议/D2.1-GRPC/4.流式GRPC调用.html">
+            
+                <a href="../../D-基础知识/D2-通信协议/D2.1-GRPC/4.流式GRPC调用.html">
+            
+                    
+                    4.流式grpc调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../../D-基础知识/D3-算法&数据结构/">
+            
+                <a href="../../D-基础知识/D3-算法&数据结构/">
+            
+                    
+                    算法&数据结构
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="../../D-基础知识/D3-算法&数据结构/1.乐观锁.html">
+            
+                <a href="../../D-基础知识/D3-算法&数据结构/1.乐观锁.html">
+            
+                    
+                    1.乐观锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">常用工具</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../../C-工具使用/C1-监控与数据上报专题/">
+            
+                <a href="../../C-工具使用/C1-监控与数据上报专题/">
+            
+                    
+                    监控与数据上报专题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../../C-工具使用/C1-监控与数据上报专题/1-数据展示Grafana.html">
+            
+                <a href="../../C-工具使用/C1-监控与数据上报专题/1-数据展示Grafana.html">
+            
+                    
+                    1.数据展示Grafana
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="../../C-工具使用/C1-监控与数据上报专题/2-数据存储InfluxDB.html">
+            
+                <a href="../../C-工具使用/C1-监控与数据上报专题/2-数据存储InfluxDB.html">
+            
+                    
+                    2.数据存储InfluxDB
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="../../C-工具使用/C1-监控与数据上报专题/3-Locust日志上报.html">
+            
+                <a href="../../C-工具使用/C1-监控与数据上报专题/3-Locust日志上报.html">
+            
+                    
+                    3.Locust日志上报
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >28.反射编程</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="28&#x53CD;&#x5C04;&#x7F16;&#x7A0B;">28|&#x53CD;&#x5C04;&#x7F16;&#x7A0B;</h1>
+<h2 id="&#x57FA;&#x672C;&#x6982;&#x5FF5;">&#x57FA;&#x672C;&#x6982;&#x5FF5;</h2>
+<p>&#x5F00;&#x59CB;&#x5177;&#x4F53;&#x7BC7;&#x5E45;&#x4E4B;&#x524D;&#xFF0C;&#x5148;&#x770B;&#x4E00;&#x4E0B;&#x53CD;&#x5C04;&#x4E09;&#x539F;&#x5219;&#xFF1A;</p>
+<ul>
+<li>Reflection goes from interface value to reflection object.</li>
+<li>Reflection goes from reflection object to interface value.</li>
+<li>To modify a reflection object, the value must be settable.</li>
+</ul>
+<p>&#x5728;&#x4E09;&#x539F;&#x5219;&#x4E2D;&#xFF0C;&#x6709;&#x4E24;&#x4E2A;&#x5173;&#x952E;&#x8BCD; <code>interface value</code> &#x4E0E; <code>reflection object</code>&#x3002;&#x6709;&#x70B9;&#x96BE;&#x7406;&#x89E3;&#xFF0C;&#x753B;&#x5F20;&#x56FE;&#x53EF;&#x80FD;&#x4F60;&#x5C31;&#x61C2;&#x4E86;&#x3002;</p>
+<p><img src="../../pic/112.png" alt="image-20200206122008586"></p>
+<p>&#x5148;&#x770B;&#x4E00;&#x4E0B;&#x4EC0;&#x4E48;&#x662F;<strong>&#x53CD;&#x5C04;&#x5BF9;&#x8C61;</strong> <code>reflection object</code>&#xFF1F; &#x53CD;&#x5C04;&#x5BF9;&#x8C61;&#x6709;&#x5F88;&#x591A;&#xFF0C;&#x4F46;&#x662F;&#x5176;&#x4E2D;&#x6700;&#x5173;&#x952E;&#x7684;&#x4E24;&#x4E2A;&#x53CD;&#x5C04;&#x5BF9;&#x8C61;<code>reflection object</code>&#x662F;&#xFF1A;<code>reflect.Type</code>&#x4E0E;<code>reflect.Value</code>.&#x76F4;&#x767D;&#x4E00;&#x70B9;&#xFF0C;&#x5C31;&#x662F;&#x5BF9;&#x53D8;&#x91CF;<code>&#x7C7B;&#x578B;</code>&#x4E0E;<code>&#x503C;</code>&#x7684;&#x62BD;&#x8C61;&#x5B9A;&#x4E49;&#x7C7B;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x8BF4;&#x662F;&#x53D8;&#x91CF;&#x7684;&#x5143;&#x4FE1;&#x606F;&#x7684;&#x7C7B;&#x5B9A;&#x4E49;.</p>
+<p>&#x518D;&#x6765;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x662F;<strong>&#x63A5;&#x53E3;&#x53D8;&#x91CF;&#x503C;</strong> <code>interface value</code>, &#x4E0D;&#x662F;&#x53D8;&#x91CF;&#x503C; <code>variable value</code> &#x6216;&#x662F;&#x5BF9;&#x8C61;&#x503C; <code>object value</code> &#x5462;&#xFF1F;&#x56E0;&#x4E3A;&#x540E;&#x4E24;&#x8005;&#x5747;&#x4E0D;&#x5177;&#x5907;&#x5E7F;&#x6CDB;&#x6027;&#x3002;&#x5728; Go &#x8BED;&#x8A00;&#x4E2D;&#xFF0C;&#x7A7A;&#x63A5;&#x53E3; <code>interface{}</code>&#x662F;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x4E00;&#x5207;&#x7C7B;&#x578B;&#x503C;&#x7684;&#x901A;&#x7528;&#x7C7B;&#x578B;&#x4F7F;&#x7528;&#x3002;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x7684;&#x63A5;&#x53E3;&#x503C; <code>interface value</code> &#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;<strong>&#x7A7A;&#x63A5;&#x53E3;&#x53D8;&#x91CF;&#x503C;</strong> <code>interface{} value</code>&#x3002;</p>
+<p>&#x7ED3;&#x5408;&#x56FE;&#x793A;&#xFF0C;&#x5C06;&#x53CD;&#x5C04;&#x4E09;&#x539F;&#x5219;&#x5F52;&#x7EB3;&#x6210;&#x4E00;&#x53E5;&#x8BDD;&#xFF1A;</p>
+<blockquote>
+<p>&#x901A;&#x8FC7;&#x53CD;&#x5C04;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;<strong>&#x53CD;&#x5C04;&#x5BF9;&#x8C61;</strong> <code>reflection object</code>&#x4E0E;<strong>&#x63A5;&#x53E3;&#x53D8;&#x91CF;&#x503C;</strong> <code>interface value</code>&#x4E4B;&#x95F4;&#x7684;&#x76F8;&#x4E92;&#x63A8;&#x5BFC;&#x4E0E;&#x8F6C;&#x5316;, &#x5982;&#x679C;&#x901A;&#x8FC7;&#x53CD;&#x5C04;&#x4FEE;&#x6539;&#x5BF9;&#x8C61;&#x53D8;&#x91CF;&#x7684;&#x503C;&#xFF0C;&#x524D;&#x63D0;&#x662F;&#x5BF9;&#x8C61;&#x53D8;&#x91CF;&#x672C;&#x8EAB;&#x662F;<code>&#x53EF;&#x4FEE;&#x6539;</code>&#x7684;&#x3002;</p>
+</blockquote>
+<h2 id="&#x4EE3;&#x7801;&#x793A;&#x4F8B;">&#x4EE3;&#x7801;&#x793A;&#x4F8B;</h2>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> reflect
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;reflect&quot;</span>
+    <span class="hljs-string">&quot;testing&quot;</span>
+)
+
+<span class="hljs-comment">//&#x53CD;&#x5C04;&#x4F20;&#x5165;&#x503C;&#x7684;&#x7C7B;&#x578B;</span>
+<span class="hljs-keyword">func</span> CheckType(v <span class="hljs-keyword">interface</span>{}) {
+    t := reflect.TypeOf(v)
+    <span class="hljs-keyword">switch</span> t.Kind() {
+    <span class="hljs-keyword">case</span> reflect.Float32,reflect.Float64:
+        fmt.Println(<span class="hljs-string">&quot;Float&quot;</span>)
+    <span class="hljs-keyword">case</span> reflect.Int,reflect.Int32,reflect.Int64:
+        fmt.Println(<span class="hljs-string">&quot;Integer&quot;</span>)
+    <span class="hljs-keyword">default</span>:
+        fmt.Println(<span class="hljs-string">&quot;Unknown&quot;</span>,t)
+    }
+}
+
+<span class="hljs-comment">//&#x6D4B;&#x8BD5;&#x7A0B;&#x5E8F;</span>
+<span class="hljs-keyword">func</span> TestBasicType(t *testing.T){
+    <span class="hljs-keyword">var</span> f <span class="hljs-keyword">float64</span> = <span class="hljs-number">12</span>
+    CheckType(f)
+    fmt.Printf(<span class="hljs-string">&quot;%v\n&quot;</span>,<span class="hljs-string">&quot;Hello&quot;</span>)
+}
+
+<span class="hljs-comment">//&#x5F97;&#x5230;&#x4F20;&#x5165;&#x503C;&#x7684;&#x7C7B;&#x578B;&#x548C;&#x503C;</span>
+<span class="hljs-keyword">func</span> TestTypeAndValue(t *testing.T) {
+    <span class="hljs-keyword">var</span> f <span class="hljs-keyword">float64</span> = <span class="hljs-number">10</span>
+    t.Log(reflect.TypeOf(f),reflect.ValueOf(f))
+    t.Log(reflect.ValueOf(f).Type())
+}
+
+<span class="hljs-comment">//&#x83B7;&#x53D6;&#x7ED3;&#x6784;&#x4F53;&#x4E2D;&#x7684;&#x503C;&#x548C;&#x65B9;&#x6CD5;&#x8C03;&#x7528;</span>
+<span class="hljs-keyword">type</span> Employee <span class="hljs-keyword">struct</span> {
+    EmployeeID <span class="hljs-keyword">string</span>
+    Name <span class="hljs-keyword">string</span> <span class="hljs-string">`format:&quot;normal&quot;`</span>    <span class="hljs-comment">//struct tag</span>
+    Age <span class="hljs-keyword">int</span>
+}
+
+<span class="hljs-keyword">func</span> (e *Employee)UpdateAge(newVal <span class="hljs-keyword">int</span>){
+    e.Age = newVal
+}
+
+<span class="hljs-keyword">func</span> TestInvokeByName(t *testing.T){
+    e := &amp;Employee{<span class="hljs-string">&quot;1&quot;</span>,<span class="hljs-string">&quot;Mike&quot;</span>,<span class="hljs-number">10</span>}
+    <span class="hljs-comment">//&#x65B9;&#x5F0F;&#x4E00; &#x4F7F;&#x7528;reflect.value.FieldByName &#x76F4;&#x63A5;&#x83B7;&#x5F97;&#x503C;</span>
+    t.Logf(<span class="hljs-string">&quot;Name: value(%[1]v), Type(%[1]T) &quot;</span>, reflect.ValueOf(*e).FieldByName(<span class="hljs-string">&quot;Name&quot;</span>))
+    <span class="hljs-comment">//&#x65B9;&#x5F0F;&#x4E8C; &#x4F7F;&#x7528;reflect.type.FieldByName &#x4F1A;&#x83B7;&#x5F97;&#x4E24;&#x4E2A;&#x503C;</span>
+    <span class="hljs-keyword">if</span> nameField,ok := reflect.TypeOf(*e).FieldByName(<span class="hljs-string">&quot;Name&quot;</span>);!ok {
+        t.Error(<span class="hljs-string">&quot;Failed to get &apos;Name&apos;&quot;</span>)
+    }<span class="hljs-keyword">else</span>{
+        <span class="hljs-comment">//&#x8BBF;&#x95EE;Struct Tag&#xFF0C;&#x5982;json&#x89E3;&#x6790;&#x6846;&#x67B6;&#x5C31;&#x662F;&#x7528;&#x4E86;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;</span>
+        t.Log(<span class="hljs-string">&quot;Tag:format&quot;</span>,nameField.Tag.Get(<span class="hljs-string">&quot;format&quot;</span>))
+    }
+    <span class="hljs-comment">//&#x51FD;&#x6570;&#x4F7F;&#x7528;</span>
+    reflect.ValueOf(e).MethodByName(<span class="hljs-string">&quot;UpdateAge&quot;</span>).Call([]reflect.Value{reflect.ValueOf(<span class="hljs-number">1</span>)})
+    t.Log(<span class="hljs-string">&quot;Updated Age:&quot;</span>,e)
+}
+</code></pre>
+<h2 id="&#x5207;&#x7247;&#x4E0E;map&#x7684;&#x6BD4;&#x8F83;">&#x5207;&#x7247;&#x4E0E;map&#x7684;&#x6BD4;&#x8F83;</h2>
+<p>&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;go&#x8BED;&#x8A00;&#x4E2D;map&#x548C;&#x5207;&#x7247;&#x662F;&#x6CA1;&#x6709;&#x529E;&#x6CD5;&#x76F4;&#x63A5;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#x7684;(&#x53EA;&#x80FD;&#x540C;nil&#x8FDB;&#x884C;&#x6BD4;&#x8F83;)&#xFF1B;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;reflect&#x4E2D;&#x7684;DeepEqual&#x8FDB;&#x884C;&#x6BD4;&#x8F83;</p>
+<pre><code class="lang-go">Learn more or give us feedback
+<span class="hljs-keyword">package</span> flexible_reflect
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;errors&quot;</span>
+    <span class="hljs-string">&quot;reflect&quot;</span>
+    <span class="hljs-string">&quot;testing&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> TestDeepEqual(t *testing.T) {
+    a := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">int</span>]<span class="hljs-keyword">string</span>{<span class="hljs-number">1</span>: <span class="hljs-string">&quot;one&quot;</span>, <span class="hljs-number">2</span>: <span class="hljs-string">&quot;two&quot;</span>, <span class="hljs-number">3</span>: <span class="hljs-string">&quot;three&quot;</span>}
+    b := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">int</span>]<span class="hljs-keyword">string</span>{<span class="hljs-number">1</span>: <span class="hljs-string">&quot;one&quot;</span>, <span class="hljs-number">2</span>: <span class="hljs-string">&quot;two&quot;</span>, <span class="hljs-number">3</span>: <span class="hljs-string">&quot;three&quot;</span>}
+    <span class="hljs-comment">//t.Log(a == b)</span>
+    t.Log(reflect.DeepEqual(a, b))
+
+    s1 := []<span class="hljs-keyword">int</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>}
+    s2 := []<span class="hljs-keyword">int</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>}
+    s3 := []<span class="hljs-keyword">int</span>{<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>}
+    t.Log(<span class="hljs-string">&quot;s1 == s2?&quot;</span>, reflect.DeepEqual(s1, s2))
+    t.Log(<span class="hljs-string">&quot;s1 == s3?&quot;</span>, reflect.DeepEqual(s1, s3))
+
+}
+</code></pre>
+<h2 id="&#x4E07;&#x80FD;&#x7A0B;&#x5E8F;">&#x4E07;&#x80FD;&#x7A0B;&#x5E8F;</h2>
+<p>&#x901A;&#x8FC7;&#x53CD;&#x5C04;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x4E07;&#x80FD;&#x7A0B;&#x5E8F;&#xFF0C;&#x7ED9;&#x4E0D;&#x540C;&#x7684;&#x7ED3;&#x6784;&#x4F53;&#x4E2D;&#x67D0;&#x4E9B;&#x5171;&#x540C;&#x7684;&#x5B57;&#x6BB5;&#x8D4B;&#x503C;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> flexible
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;github.com/pkg/errors&quot;</span>
+    <span class="hljs-string">&quot;reflect&quot;</span>
+    <span class="hljs-string">&quot;testing&quot;</span>
+)
+
+<span class="hljs-keyword">type</span> Employee <span class="hljs-keyword">struct</span> {
+    EmployeeID    <span class="hljs-keyword">string</span>
+    Name        <span class="hljs-keyword">string</span> <span class="hljs-string">`format:&quot;normal&quot;`</span>
+    Age         <span class="hljs-keyword">int</span>
+}
+
+<span class="hljs-keyword">func</span> (e *Employee) UpdateAge(newVal <span class="hljs-keyword">int</span>) {
+    e.Age = newVal
+}
+
+<span class="hljs-keyword">type</span> Customer <span class="hljs-keyword">struct</span> {
+    CookieID <span class="hljs-keyword">string</span>
+    Name     <span class="hljs-keyword">string</span>
+    Age      <span class="hljs-keyword">int</span>
+}
+
+<span class="hljs-keyword">func</span> fillBySettings(st <span class="hljs-keyword">interface</span>{},settings <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">interface</span>{}) error {
+    <span class="hljs-keyword">if</span> reflect.TypeOf(st).Kind() != reflect.Ptr {
+        <span class="hljs-keyword">return</span> errors.New(<span class="hljs-string">&quot;the first param should be a pointer to the struct type.&quot;</span>)
+    }
+    <span class="hljs-comment">// Elem() &#x83B7;&#x53D6;&#x6307;&#x9488;&#x6307;&#x5411;&#x7684;&#x503C;</span>
+    <span class="hljs-keyword">if</span> reflect.TypeOf(st).Elem().Kind() != reflect.Struct {
+        <span class="hljs-keyword">return</span> errors.New(<span class="hljs-string">&quot;the first param should be a pointer to the struct type.&quot;</span>)
+    }
+
+    <span class="hljs-keyword">if</span> settings == <span class="hljs-literal">nil</span> {
+        <span class="hljs-keyword">return</span> errors.New(<span class="hljs-string">&quot;settings is nil.&quot;</span>)
+    }
+    <span class="hljs-keyword">var</span> field reflect.StructField
+    <span class="hljs-keyword">var</span> ok <span class="hljs-keyword">bool</span>
+    <span class="hljs-keyword">for</span> k,v := <span class="hljs-keyword">range</span> settings{
+        <span class="hljs-keyword">if</span> field,ok = (reflect.ValueOf(st)).Elem().Type().FieldByName(k);!ok{
+            <span class="hljs-keyword">continue</span>
+        }
+        <span class="hljs-keyword">if</span> field.Type == reflect.TypeOf(v) {
+            vstr := reflect.ValueOf(st).Elem()
+            vstr.FieldByName(k).Set(reflect.ValueOf(v))
+        }
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+
+}
+
+<span class="hljs-keyword">func</span> TestFillNameAndAge(t *testing.T) {
+    settings := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">interface</span>{}{<span class="hljs-string">&quot;Name&quot;</span>: <span class="hljs-string">&quot;Mike&quot;</span>, <span class="hljs-string">&quot;Age&quot;</span>: <span class="hljs-number">30</span>}
+    e := Employee{}
+    <span class="hljs-keyword">if</span> err := fillBySettings(&amp;e, settings); err != <span class="hljs-literal">nil</span> {
+        t.Fatal(err)
+    }
+    t.Log(e)
+    c := <span class="hljs-built_in">new</span>(Customer)
+    <span class="hljs-keyword">if</span> err := fillBySettings(c, settings); err != <span class="hljs-literal">nil</span> {
+        t.Fatal(err)
+    }
+    t.Log(*c)
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="27-BDD.html" class="navigation navigation-prev " aria-label="Previous page: 27.BDD">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="29-不安全编程.html" class="navigation navigation-next " aria-label="Next page: 29.不安全编程">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"28.反射编程","level":"2.1.29","depth":2,"next":{"title":"29.不安全编程","level":"2.1.30","depth":2,"path":"A-编码知识/A1-Go语言学习笔记/29-不安全编程.md","ref":"A-编码知识/A1-Go语言学习笔记/29-不安全编程.md","articles":[]},"previous":{"title":"27.BDD","level":"2.1.28","depth":2,"path":"A-编码知识/A1-Go语言学习笔记/27-BDD.md","ref":"A-编码知识/A1-Go语言学习笔记/27-BDD.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"A-编码知识/A1-Go语言学习笔记/28-反射编程.md","mtime":"2020-02-08T04:24:44.814Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-17T13:49:41.981Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
