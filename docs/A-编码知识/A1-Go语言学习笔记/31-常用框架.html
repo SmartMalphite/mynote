@@ -1099,6 +1099,159 @@
                                 
                                 <h1 id="31&#x5E38;&#x7528;&#x6846;&#x67B6;">31|&#x5E38;&#x7528;&#x6846;&#x67B6;</h1>
 <h2 id="1go&#x5185;&#x7F6E;json&#x89E3;&#x6790;">1.Go&#x5185;&#x7F6E;json&#x89E3;&#x6790;</h2>
+<p>&#x63A8;&#x8350;&#x5728;&#x8BFB;&#x914D;&#x7F6E;&#x7B49;&#x5BF9;&#x6027;&#x80FD;&#x8981;&#x6C42;&#x4E0D;&#x9AD8;&#x7684;&#x573A;&#x666F;&#x4E0B;&#x4F7F;&#x7528;&#xFF0C;&#x56E0;&#x4E3A;&#x5185;&#x7F6E;&#x7684;json&#x6846;&#x67B6;&#x4F7F;&#x7528;&#x4E86;&#x53CD;&#x5C04;&#xFF0C;&#x6240;&#x4EE5;&#x6027;&#x80FD;&#x8F83;&#x5DEE;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> jsontest
+
+<span class="hljs-keyword">import</span> (
+   <span class="hljs-string">&quot;encoding/json&quot;</span>
+   <span class="hljs-string">&quot;fmt&quot;</span>
+   <span class="hljs-string">&quot;testing&quot;</span>
+)
+
+<span class="hljs-keyword">type</span> BasicInfo <span class="hljs-keyword">struct</span> {
+   Name <span class="hljs-keyword">string</span> <span class="hljs-string">`json:&quot;name&quot;`</span>
+   Age  <span class="hljs-keyword">int</span>    <span class="hljs-string">`json:&quot;age&quot;`</span>
+}
+<span class="hljs-keyword">type</span> JobInfo <span class="hljs-keyword">struct</span> {
+   Skills []<span class="hljs-keyword">string</span> <span class="hljs-string">`json:&quot;skills&quot;`</span>
+}
+<span class="hljs-keyword">type</span> Employee <span class="hljs-keyword">struct</span> {
+   BasicInfo BasicInfo <span class="hljs-string">`json:&quot;basic_info&quot;`</span>
+   JobInfo   JobInfo   <span class="hljs-string">`json:&quot;job_info&quot;`</span>
+}
+
+<span class="hljs-keyword">var</span> jsonStr = <span class="hljs-string">`{
+   &quot;basic_info&quot;:{
+      &quot;name&quot;:&quot;Mike&quot;,
+      &quot;age&quot;:30
+   },
+   &quot;job_info&quot;:{
+      &quot;skills&quot;:[&quot;Java&quot;,&quot;Go&quot;,&quot;C&quot;]
+   }
+}`</span>
+
+<span class="hljs-keyword">func</span> TestJson(t *testing.T){
+   e := <span class="hljs-built_in">new</span>(Employee)
+   err := json.Unmarshal([]<span class="hljs-keyword">byte</span>(jsonStr),e)
+   <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+      t.Error(err)
+   }
+   <span class="hljs-keyword">if</span> v,err := json.Marshal(e);err == <span class="hljs-literal">nil</span>{
+      fmt.Println(<span class="hljs-keyword">string</span>(v))
+   }<span class="hljs-keyword">else</span> {
+      t.Error(err)
+   }
+   fmt.Println(*e)
+
+}
+</code></pre>
+<h2 id="2easyjson">2.Easyjson</h2>
+<p>&#x6027;&#x80FD;&#x8F83;&#x9AD8;&#x7684;json&#x89E3;&#x6790;&#x6846;&#x67B6;&#xFF0C;&#x4F7F;&#x7528;&#x4EE3;&#x7801;&#x751F;&#x6210;&#x7684;&#x65B9;&#x5F0F;&#x5BF9;json&#x8FDB;&#x884C;&#x89E3;&#x6790;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x53CD;&#x5C04;&#xFF0C;&#x6027;&#x80FD;&#x660E;&#x663E;&#x4F18;&#x4E8E;&#x5185;&#x7F6E;json&#x89E3;&#x6790;&#x6846;&#x67B6;</p>
+<p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;go get&#x8FDB;&#x884C;easyjson&#x7684;&#x5B89;&#x88C5;&#xFF0C;&#x5B89;&#x88C5;&#x5B8C;&#x6210;&#x540E;&#x901A;&#x8FC7;&#x547D;&#x4EE4;&#x884C;&#x57FA;&#x4E8E;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x8FDB;&#x884C;&#x4EE3;&#x7801;&#x751F;&#x6210;</p>
+<pre><code class="lang-shell">go get -u github.com/mailru/easyjson/...
+
+~/go/bin/easyjson -all struct_def.go
+</code></pre>
+<p>&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x4EE5;&#x53CA;&#x6027;&#x80FD;&#x5BF9;&#x6BD4;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> jsontest
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;encoding/json&quot;</span>
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;testing&quot;</span>
+)
+
+<span class="hljs-keyword">var</span> jsonStr = <span class="hljs-string">`{
+    &quot;basic_info&quot;:{
+          &quot;name&quot;:&quot;Mike&quot;,
+        &quot;age&quot;:30
+    },
+    &quot;job_info&quot;:{
+        &quot;skills&quot;:[&quot;Java&quot;,&quot;Go&quot;,&quot;C&quot;]
+    }
+}    `</span>
+
+<span class="hljs-keyword">func</span> TestEmbeddedJson(t *testing.T) {
+    e := <span class="hljs-built_in">new</span>(Employee)
+    err := json.Unmarshal([]<span class="hljs-keyword">byte</span>(jsonStr), e)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        t.Error(err)
+    }
+    fmt.Println(*e)
+    <span class="hljs-keyword">if</span> v, err := json.Marshal(e); err == <span class="hljs-literal">nil</span> {
+        fmt.Println(<span class="hljs-keyword">string</span>(v))
+    } <span class="hljs-keyword">else</span> {
+        t.Error(err)
+    }
+
+}
+
+<span class="hljs-keyword">func</span> TestEasyJson(t *testing.T) {
+    e := Employee{}
+    e.UnmarshalJSON([]<span class="hljs-keyword">byte</span>(jsonStr))
+    fmt.Println(e)
+    <span class="hljs-keyword">if</span> v, err := e.MarshalJSON(); err != <span class="hljs-literal">nil</span> {
+        t.Error(err)
+    } <span class="hljs-keyword">else</span> {
+        fmt.Println(<span class="hljs-keyword">string</span>(v))
+    }
+}
+
+<span class="hljs-keyword">func</span> BenchmarkEmbeddedJson(b *testing.B) {
+    b.ResetTimer()
+    e := <span class="hljs-built_in">new</span>(Employee)
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; b.N; i++ {
+
+        err := json.Unmarshal([]<span class="hljs-keyword">byte</span>(jsonStr), e)
+        <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+            b.Error(err)
+        }
+        <span class="hljs-keyword">if</span> _, err = json.Marshal(e); err != <span class="hljs-literal">nil</span> {
+            b.Error(err)
+        }
+    }
+}
+
+<span class="hljs-keyword">func</span> BenchmarkEasyJson(b *testing.B) {
+    b.ResetTimer()
+    e := Employee{}
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; b.N; i++ {
+        err := e.UnmarshalJSON([]<span class="hljs-keyword">byte</span>(jsonStr))
+        <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+            b.Error(err)
+        }
+        <span class="hljs-keyword">if</span> _, err = e.MarshalJSON(); err != <span class="hljs-literal">nil</span> {
+            b.Error(err)
+        }
+    }
+}
+</code></pre>
+<p>&#x6027;&#x80FD;&#x8FD0;&#x884C;&#x7ED3;&#x679C;</p>
+<p><img src="../../pic/image-20200301171038148.png" alt="image-20200301171038148"></p>
+<h2 id="3&#x7B80;&#x5355;&#x7684;http&#x670D;&#x52A1;">3.&#x7B80;&#x5355;&#x7684;HTTP&#x670D;&#x52A1;</h2>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;net/http&quot;</span>
+
+    <span class="hljs-string">&quot;time&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> main() {
+    http.HandleFunc(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-keyword">func</span>(w http.ResponseWriter, r *http.Request) {
+        fmt.Fprintf(w, <span class="hljs-string">&quot;Hello World!&quot;</span>)
+    })
+    http.HandleFunc(<span class="hljs-string">&quot;/time/&quot;</span>, <span class="hljs-keyword">func</span>(w http.ResponseWriter, r *http.Request) {
+        t := time.Now()
+        timeStr := fmt.Sprintf(<span class="hljs-string">&quot;{\&quot;time\&quot;: \&quot;%s\&quot;}&quot;</span>, t)
+        w.Write([]<span class="hljs-keyword">byte</span>(timeStr))
+    })
+
+    http.ListenAndServe(<span class="hljs-string">&quot;:8080&quot;</span>, <span class="hljs-literal">nil</span>)
+}
+</code></pre>
+<h2 id="4restful-api">4.Restful api</h2>
 
                                 
                                 </section>
@@ -1142,7 +1295,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"31.常用框架","level":"2.1.32","depth":2,"next":{"title":"附1-值传递or引用传递","level":"2.1.33","depth":2,"path":"A-编码知识/A1-Go语言学习笔记/附1-值传递or引用传递.md","ref":"A-编码知识/A1-Go语言学习笔记/附1-值传递or引用传递.md","articles":[]},"previous":{"title":"30.常见架构模式","level":"2.1.31","depth":2,"path":"A-编码知识/A1-Go语言学习笔记/30-常见架构模式.md","ref":"A-编码知识/A1-Go语言学习笔记/30-常见架构模式.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"A-编码知识/A1-Go语言学习笔记/31-常用框架.md","mtime":"2020-02-10T03:56:50.653Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-17T13:49:41.981Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"31.常用框架","level":"2.1.32","depth":2,"next":{"title":"附1-值传递or引用传递","level":"2.1.33","depth":2,"path":"A-编码知识/A1-Go语言学习笔记/附1-值传递or引用传递.md","ref":"A-编码知识/A1-Go语言学习笔记/附1-值传递or引用传递.md","articles":[]},"previous":{"title":"30.常见架构模式","level":"2.1.31","depth":2,"path":"A-编码知识/A1-Go语言学习笔记/30-常见架构模式.md","ref":"A-编码知识/A1-Go语言学习笔记/30-常见架构模式.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"A-编码知识/A1-Go语言学习笔记/31-常用框架.md","mtime":"2020-03-01T09:14:27.434Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-03T14:09:17.646Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

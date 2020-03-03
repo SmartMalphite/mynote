@@ -1,4 +1,4 @@
-# orm框架 sqlalchemy
+# 附录1|orm框架 sqlalchemy
 
 ## python SQLAlchemy自动生成models文件‌
 
@@ -79,6 +79,8 @@ if __name__ == "__main__":
     result = session.query(MerchantInfoTab).filter(UsersInfoTab.uid = xxx).first()
     for row in result:
         print(row.id,row.name)
+    result.uid = xxx
+    session.commit()
 
 
     e.close()
