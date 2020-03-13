@@ -1,0 +1,1222 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>0-Redis基础 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="1-Redis数据结构-字符串.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    A-编码知识
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../../A-编码知识/A1-Go语言学习笔记/">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/">
+            
+                    
+                    A1-Go语言学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../../../A-编码知识/A1-Go语言学习笔记/00-故事的开始.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/00-故事的开始.html">
+            
+                    
+                    00-故事的开始
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../../../A-编码知识/A1-Go语言学习笔记/01-变量和常量.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/01-变量和常量.html">
+            
+                    
+                    01-变量和常量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="../../../A-编码知识/A1-Go语言学习笔记/02-逻辑分支:条件和循环.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/02-逻辑分支:条件和循环.html">
+            
+                    
+                    02-逻辑分支:条件和循环
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4" data-path="../../../A-编码知识/A1-Go语言学习笔记/03-数据类型:数组与切片.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/03-数据类型:数组与切片.html">
+            
+                    
+                    03-数据类型:数组与切片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5" data-path="../../../A-编码知识/A1-Go语言学习笔记/04-数据类型:Map的使用.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/04-数据类型:Map的使用.html">
+            
+                    
+                    04-数据类型:Map的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.6" data-path="../../../A-编码知识/A1-Go语言学习笔记/05-数据类型:字符串.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/05-数据类型:字符串.html">
+            
+                    
+                    05-数据类型:字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.7" data-path="../../../A-编码知识/A1-Go语言学习笔记/06-一等公民:函数.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/06-一等公民:函数.html">
+            
+                    
+                    06-一等公民:函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8" data-path="../../../A-编码知识/A1-Go语言学习笔记/07-可变参数和defer.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/07-可变参数和defer.html">
+            
+                    
+                    07-可变参数和defer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.9" data-path="../../../A-编码知识/A1-Go语言学习笔记/08-面向对象:行为的定义和实现.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/08-面向对象:行为的定义和实现.html">
+            
+                    
+                    08-面向对象:行为的定义和实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.10" data-path="../../../A-编码知识/A1-Go语言学习笔记/09-接口的定义.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/09-接口的定义.html">
+            
+                    
+                    09-接口的定义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.11" data-path="../../../A-编码知识/A1-Go语言学习笔记/10-继承.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/10-继承.html">
+            
+                    
+                    10-继承
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.12" data-path="../../../A-编码知识/A1-Go语言学习笔记/11-多态.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/11-多态.html">
+            
+                    
+                    11-多态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.13" data-path="../../../A-编码知识/A1-Go语言学习笔记/12-空接口断言与type_switch.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/12-空接口断言与type_switch.html">
+            
+                    
+                    12-空接口断言与type_switch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.14" data-path="../../../A-编码知识/A1-Go语言学习笔记/13-Go语言的异常处理.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/13-Go语言的异常处理.html">
+            
+                    
+                    13-Go语言的异常处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.15" data-path="../../../A-编码知识/A1-Go语言学习笔记/14-包管理.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/14-包管理.html">
+            
+                    
+                    14-包管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.16" data-path="../../../A-编码知识/A1-Go语言学习笔记/15-协程机制.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/15-协程机制.html">
+            
+                    
+                    15-协程机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.17" data-path="../../../A-编码知识/A1-Go语言学习笔记/16-共享内存并发机制.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/16-共享内存并发机制.html">
+            
+                    
+                    16-共享内存并发机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.18" data-path="../../../A-编码知识/A1-Go语言学习笔记/17-CSP并发.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/17-CSP并发.html">
+            
+                    
+                    17-CSP并发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.19" data-path="../../../A-编码知识/A1-Go语言学习笔记/18-多路选择和超时控制.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/18-多路选择和超时控制.html">
+            
+                    
+                    18-多路选择和超时控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.20" data-path="../../../A-编码知识/A1-Go语言学习笔记/19-channel的关闭和广播.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/19-channel的关闭和广播.html">
+            
+                    
+                    19-channel的关闭和广播
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.21" data-path="../../../A-编码知识/A1-Go语言学习笔记/20-context与任务取消.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/20-context与任务取消.html">
+            
+                    
+                    20-context与任务取消
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.22" data-path="../../../A-编码知识/A1-Go语言学习笔记/21-典型并发模式.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/21-典型并发模式.html">
+            
+                    
+                    21-典型并发模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.23" data-path="../../../A-编码知识/A1-Go语言学习笔记/22-对象池与sync.Pool.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/22-对象池与sync.Pool.html">
+            
+                    
+                    22-对象池与sync.Pool
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.24" data-path="../../../A-编码知识/A1-Go语言学习笔记/23-单元测试.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/23-单元测试.html">
+            
+                    
+                    23-单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.25" data-path="../../../A-编码知识/A1-Go语言学习笔记/24-Benchmark.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/24-Benchmark.html">
+            
+                    
+                    24 Benchmark
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.26" data-path="../../../A-编码知识/A1-Go语言学习笔记/25-BDD.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/25-BDD.html">
+            
+                    
+                    25 BDD
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.27" data-path="../../../A-编码知识/A1-Go语言学习笔记/26-反射编程.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/26-反射编程.html">
+            
+                    
+                    26-反射编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.28" data-path="../../../A-编码知识/A1-Go语言学习笔记/27-不安全编程.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/27-不安全编程.html">
+            
+                    
+                    27-不安全编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.29" data-path="../../../A-编码知识/A1-Go语言学习笔记/28-常见架构模式.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/28-常见架构模式.html">
+            
+                    
+                    28-常见架构模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.30" data-path="../../../A-编码知识/A1-Go语言学习笔记/29-常用框架.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/29-常用框架.html">
+            
+                    
+                    29-常用框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.31" data-path="../../../A-编码知识/A1-Go语言学习笔记/30-性能分析.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/30-性能分析.html">
+            
+                    
+                    30-性能分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.32" data-path="../../../A-编码知识/A1-Go语言学习笔记/31-性能优化.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/31-性能优化.html">
+            
+                    
+                    31-性能优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.33" data-path="../../../A-编码知识/A1-Go语言学习笔记/附1-值传递or引用传递.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/附1-值传递or引用传递.html">
+            
+                    
+                    附1-值传递or引用传递
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.34" data-path="../../../A-编码知识/A1-Go语言学习笔记/附2-Go微服务代码覆盖率&性能监控.html">
+            
+                <a href="../../../A-编码知识/A1-Go语言学习笔记/附2-Go微服务代码覆盖率&性能监控.html">
+            
+                    
+                    附2-Go微服务代码覆盖率&性能监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../../A-编码知识/A2-Python学习笔记/">
+            
+                <a href="../../../A-编码知识/A2-Python学习笔记/">
+            
+                    
+                    A2-Python学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../../../A-编码知识/A2-Python学习笔记/附1-orm框架的使用.html">
+            
+                <a href="../../../A-编码知识/A2-Python学习笔记/附1-orm框架的使用.html">
+            
+                    
+                    附1-orm框架的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../../B-性能测试专题/">
+            
+                <a href="../../../B-性能测试专题/">
+            
+                    
+                    B-性能测试专题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../../B-性能测试专题/B1-压测工具/">
+            
+                <a href="../../../B-性能测试专题/B1-压测工具/">
+            
+                    
+                    B1-压测工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../../../B-性能测试专题/B1-压测工具/1.Locust使用.html">
+            
+                <a href="../../../B-性能测试专题/B1-压测工具/1.Locust使用.html">
+            
+                    
+                    1.Locust使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../../../B-性能测试专题/B1-压测工具/2.Go重写slave.html">
+            
+                <a href="../../../B-性能测试专题/B1-压测工具/2.Go重写slave.html">
+            
+                    
+                    2.Go重写slave
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../../B-性能测试专题/01-性能综述.html">
+            
+                <a href="../../../B-性能测试专题/01-性能综述.html">
+            
+                    
+                    01-性能综述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../../B-性能测试专题/02-常用性能指标.html">
+            
+                <a href="../../../B-性能测试专题/02-常用性能指标.html">
+            
+                    
+                    02-常用性能指标
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../../C-工具使用/">
+            
+                <a href="../../../C-工具使用/">
+            
+                    
+                    C-工具使用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../../C-工具使用/C1-监控与数据上报专题/">
+            
+                <a href="../../../C-工具使用/C1-监控与数据上报专题/">
+            
+                    
+                    C1-监控与数据上报专题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../../../C-工具使用/C1-监控与数据上报专题/1-数据展示Grafana.html">
+            
+                <a href="../../../C-工具使用/C1-监控与数据上报专题/1-数据展示Grafana.html">
+            
+                    
+                    1-数据展示Grafana
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../../../C-工具使用/C1-监控与数据上报专题/2-数据存储InfluxDB.html">
+            
+                <a href="../../../C-工具使用/C1-监控与数据上报专题/2-数据存储InfluxDB.html">
+            
+                    
+                    2-数据存储InfluxDB
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" data-path="../../../C-工具使用/C1-监控与数据上报专题/3-Locust日志上报.html">
+            
+                <a href="../../../C-工具使用/C1-监控与数据上报专题/3-Locust日志上报.html">
+            
+                    
+                    3-Locust日志上报
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    D-基础知识
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    D1-数据库专题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1.1" data-path="../D1.1-Mysql/">
+            
+                <a href="../D1.1-Mysql/">
+            
+                    
+                    D1.1-Mysql
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    D1.2-Redis
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.5.1.2.1" data-path="0-Redis基础.html">
+            
+                <a href="0-Redis基础.html">
+            
+                    
+                    0-Redis基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.2.2" data-path="1-Redis数据结构-字符串.html">
+            
+                <a href="1-Redis数据结构-字符串.html">
+            
+                    
+                    1-Redis数据结构-字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.2.3" data-path="2-Redis数据结构-列表.html">
+            
+                <a href="2-Redis数据结构-列表.html">
+            
+                    
+                    2-Redis数据结构-列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.2.4" data-path="3-Redis数据结构-集合.html">
+            
+                <a href="3-Redis数据结构-集合.html">
+            
+                    
+                    3-Redis数据结构-集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.2.5" data-path="4-Redis数据结构-有序集合.html">
+            
+                <a href="4-Redis数据结构-有序集合.html">
+            
+                    
+                    4-Redis数据结构-有序集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.2.6" data-path="5-Redis数据结构 – 哈希.html">
+            
+                <a href="5-Redis数据结构 – 哈希.html">
+            
+                    
+                    5-Redis数据结构 – 哈希
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.2.7" data-path="6-Redis持久化储存.html">
+            
+                <a href="6-Redis持久化储存.html">
+            
+                    
+                    6-Redis持久化储存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.2.8" data-path="7-redis的事务机制.html">
+            
+                <a href="7-redis的事务机制.html">
+            
+                    
+                    7-redis的事务机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../D2-通信协议/">
+            
+                <a href="../../D2-通信协议/">
+            
+                    
+                    D2-通信协议
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1" data-path="../../D2-通信协议/D2.1-GRPC/">
+            
+                <a href="../../D2-通信协议/D2.1-GRPC/">
+            
+                    
+                    D2.1-GRPC
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1.1" data-path="../../D2-通信协议/D2.1-GRPC/1.Protobuf.html">
+            
+                <a href="../../D2-通信协议/D2.1-GRPC/1.Protobuf.html">
+            
+                    
+                    1.Protobuf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.1.2" data-path="../../D2-通信协议/D2.1-GRPC/2.PB+HTTP.html">
+            
+                <a href="../../D2-通信协议/D2.1-GRPC/2.PB+HTTP.html">
+            
+                    
+                    2.PB+HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.1.3" data-path="../../D2-通信协议/D2.1-GRPC/3.PB+GRPC.html">
+            
+                <a href="../../D2-通信协议/D2.1-GRPC/3.PB+GRPC.html">
+            
+                    
+                    3.PB+GRPC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.1.4" data-path="../../D2-通信协议/D2.1-GRPC/4.流式GRPC调用.html">
+            
+                <a href="../../D2-通信协议/D2.1-GRPC/4.流式GRPC调用.html">
+            
+                    
+                    4.流式GRPC调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../../D3-算法&数据结构/">
+            
+                <a href="../../D3-算法&数据结构/">
+            
+                    
+                    D3-算法&数据结构
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.3.1" data-path="../../D3-算法&数据结构/1.乐观锁.html">
+            
+                <a href="../../D3-算法&数据结构/1.乐观锁.html">
+            
+                    
+                    1.乐观锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >0-Redis基础</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="00redis&#x57FA;&#x7840;">00|Redis&#x57FA;&#x7840;</h1>
+<h3 id="&#x8FDB;&#x5165;&#x672C;&#x5730;&#x547D;&#x4EE4;&#x884C;&#x5BA2;&#x6237;&#x7AEF;">&#x8FDB;&#x5165;&#x672C;&#x5730;&#x547D;&#x4EE4;&#x884C;&#x5BA2;&#x6237;&#x7AEF;</h3>
+<pre><code>EnboWangdeMacBook-Pro:~ enbowang$ redis-cli
+127.0.0.1:6379&gt;
+</code></pre><h3 id="&#x8FDC;&#x7A0B;&#x8FDE;&#x63A5;redis&#x5BA2;&#x6237;&#x7AEF;">&#x8FDC;&#x7A0B;&#x8FDE;&#x63A5;redis&#x5BA2;&#x6237;&#x7AEF;</h3>
+<pre><code>$ redis-cli -h host -p port -a password
+</code></pre><h3 id="redis&#x952E;-&#x64CD;&#x4F5C;">Redis&#x952E; &#x64CD;&#x4F5C;</h3>
+<pre><code>127.0.0.1:6379&gt; set test 123
+OK
+
+127.0.0.1:6379&gt; get test
+&quot;123&quot;
+
+127.0.0.1:6379&gt; del test
+(integer) 1
+</code></pre><p><img src="../../../pic/222.png" alt="img"></p>
+<p><img src="../../../pic/333.png" alt="img"></p>
+<p>&#x53C2;&#x8003;&#x94FE;&#x63A5; <a href="https://www.cnblogs.com/jianzhixuan/p/6427640.html" target="_blank">https://www.cnblogs.com/jianzhixuan/p/6427640.html</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: D1.2-Redis">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="1-Redis数据结构-字符串.html" class="navigation navigation-next " aria-label="Next page: 1-Redis数据结构-字符串">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"0-Redis基础","level":"1.5.1.2.1","depth":4,"next":{"title":"1-Redis数据结构-字符串","level":"1.5.1.2.2","depth":4,"path":"D-基础知识/D1-数据库专题/D1.2-Redis/1-Redis数据结构-字符串.md","ref":"D-基础知识/D1-数据库专题/D1.2-Redis/1-Redis数据结构-字符串.md","articles":[]},"previous":{"title":"D1.2-Redis","level":"1.5.1.2","depth":3,"path":"D-基础知识/D1-数据库专题/D1.2-Redis/README.md","ref":"D-基础知识/D1-数据库专题/D1.2-Redis/README.md","articles":[{"title":"0-Redis基础","level":"1.5.1.2.1","depth":4,"path":"D-基础知识/D1-数据库专题/D1.2-Redis/0-Redis基础.md","ref":"D-基础知识/D1-数据库专题/D1.2-Redis/0-Redis基础.md","articles":[]},{"title":"1-Redis数据结构-字符串","level":"1.5.1.2.2","depth":4,"path":"D-基础知识/D1-数据库专题/D1.2-Redis/1-Redis数据结构-字符串.md","ref":"D-基础知识/D1-数据库专题/D1.2-Redis/1-Redis数据结构-字符串.md","articles":[]},{"title":"2-Redis数据结构-列表","level":"1.5.1.2.3","depth":4,"path":"D-基础知识/D1-数据库专题/D1.2-Redis/2-Redis数据结构-列表.md","ref":"D-基础知识/D1-数据库专题/D1.2-Redis/2-Redis数据结构-列表.md","articles":[]},{"title":"3-Redis数据结构-集合","level":"1.5.1.2.4","depth":4,"path":"D-基础知识/D1-数据库专题/D1.2-Redis/3-Redis数据结构-集合.md","ref":"D-基础知识/D1-数据库专题/D1.2-Redis/3-Redis数据结构-集合.md","articles":[]},{"title":"4-Redis数据结构-有序集合","level":"1.5.1.2.5","depth":4,"path":"D-基础知识/D1-数据库专题/D1.2-Redis/4-Redis数据结构-有序集合.md","ref":"D-基础知识/D1-数据库专题/D1.2-Redis/4-Redis数据结构-有序集合.md","articles":[]},{"title":"5-Redis数据结构 – 哈希","level":"1.5.1.2.6","depth":4,"path":"D-基础知识/D1-数据库专题/D1.2-Redis/5-Redis数据结构 – 哈希.md","ref":"D-基础知识/D1-数据库专题/D1.2-Redis/5-Redis数据结构 – 哈希.md","articles":[]},{"title":"6-Redis持久化储存","level":"1.5.1.2.7","depth":4,"path":"D-基础知识/D1-数据库专题/D1.2-Redis/6-Redis持久化储存.md","ref":"D-基础知识/D1-数据库专题/D1.2-Redis/6-Redis持久化储存.md","articles":[]},{"title":"7-redis的事务机制","level":"1.5.1.2.8","depth":4,"path":"D-基础知识/D1-数据库专题/D1.2-Redis/7-redis的事务机制.md","ref":"D-基础知识/D1-数据库专题/D1.2-Redis/7-redis的事务机制.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"D-基础知识/D1-数据库专题/D1.2-Redis/0-Redis基础.md","mtime":"2020-01-10T08:06:20.542Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-13T15:12:24.634Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
