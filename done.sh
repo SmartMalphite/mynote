@@ -1,3 +1,5 @@
+rm -rf docs/
+book sm
 gitbook build ./ ./docs
 
 git add --all
