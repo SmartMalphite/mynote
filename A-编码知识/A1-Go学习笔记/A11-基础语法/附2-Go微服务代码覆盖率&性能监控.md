@@ -86,7 +86,7 @@ Showing top 5 nodes out of 12
 (pprof) web
 ```
 
-![img](../../pic/444.png)
+![img](../../../pic/444.png)
 
 ‌
 

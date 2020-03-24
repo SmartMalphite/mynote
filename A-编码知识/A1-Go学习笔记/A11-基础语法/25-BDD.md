@@ -57,5 +57,5 @@ ok      golearning/src/ch27/bdd 1.750s
 
 > $ GOPATH/bin/goconvey 并浏览器打开http://127.0.0.1:8080/
 
-![image-20200205230822773](../../pic/999.png)
+![image-20200205230822773](../../../pic/999.png)
 
